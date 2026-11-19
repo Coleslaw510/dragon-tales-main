@@ -20,8 +20,26 @@ Swift 5, SpriteKit, iOS 16+, SwiftUI wrapper (`SpriteView`). XcodeGen (`project.
 - `Art/ui/` — coin/gem/food/xp icons, app icons
 - `Data/dragons.json` — species catalog
 - `Data/economy.json` — costs, timers, shop, island, starting layout
-- `App/DragonTalesApp.swift` — `@main` SwiftUI entry
-- `App/GameScene.swift` — root SpriteKit scene (stub)
+- `App/DragonTalesApp.swift` — `@main` SwiftUI entry (holds one `GameScene`)
+- `App/GameScene.swift` — root scene: state, camera, HUD, tick (0.5s), autosave
+- `App/GameScene+Input.swift` — touch routing, pan, pinch zoom, tap-to-select
+- `App/GameScene+Actions.swift` — shop buys, placement, hatch, collect, selection info
+- `App/Data/Models.swift` — catalog structs + Codable save structs
+- `App/Data/Catalog.swift` — load `Data/*.json`, textures from `Art/`, prices/timers
+- `App/Game/GameState.swift` — park rules: eggs, habitats, hatching
+- `App/Economy/Wallet.swift` — gold, per-dragon gold/hr, habitat storage cap, collect
+- `App/Save/SaveStore.swift` — JSON save in Documents, new game
+- `App/Island/IslandGrid.swift` — 96pt grid, 2x2 footprints, grass-oval bounds
+- `App/Island/IslandBuilder.swift` — island + clouds backdrop, building nodes
+- `App/Island/CameraController.swift` — pan/zoom clamp
+- `App/Island/PlacementController.swift` — habitat ghost drag/snap/confirm
+- `App/Island/HabitatNode.swift` — habitat sprite, dragons, stored-coin badge
+- `App/Island/NurseryNode.swift` — nursery (hatchery art) + egg countdowns
+- `App/Dragons/DragonNode.swift` — park dragon (idle bob)
+- `App/Shop/ShopOverlay.swift` — Eggs / Habitats tabs
+- `App/UI/HUD.swift` — gold, Shop, info bar, toasts, placement buttons
+- `App/UI/ModalPanel.swift`, `App/UI/Prompts.swift` — overlays, habitat picker
+- `App/UI/ButtonNode.swift`, `App/UI/Effects.swift`, `App/UI/Format.swift` — buttons, actions, formatting
 - `App/Resources/Assets.xcassets` — AppIcon
 - `project.yml` — XcodeGen spec
 - `.github/workflows/build.yml` — unsigned IPA on push to `main`
@@ -30,18 +48,9 @@ Swift 5, SpriteKit, iOS 16+, SwiftUI wrapper (`SpriteView`). XcodeGen (`project.
 
 Add these when the milestone starts. One feature per file; keep files under ~300 lines.
 
-- `App/Data/Catalog.swift` — load and decode JSON
-- `App/Data/Models.swift` — DragonSpecies, Element, Habitat, Building, Save
-- `App/Island/IslandScene.swift` — pan/zoom island, grid placement
-- `App/Island/HabitatNode.swift` — habitat sprite and occupants
 - `App/Breeding/BreedingController.swift` — element-pair recipes, costs, results
-- `App/Breeding/HatcheryController.swift` — incubation slots and timers
-- `App/Dragons/DragonNode.swift` — park dragon, feeding, level
-- `App/Economy/Wallet.swift` — coins, gems, food, income ticks
-- `App/Shop/ShopOverlay.swift` — buy habitats, eggs, decorations, expansions
+- `App/Breeding/HatcheryController.swift` — move nursery timers here if breeding needs it
 - `App/Book/DragonBook.swift` — discovered species collection
-- `App/Save/SaveStore.swift` — persist park state
-- `App/UI/HUD.swift` — currency bar and buttons
 
 ## Data models (from JSON)
 
@@ -84,3 +93,4 @@ CI: push to `main` or run **Build unsigned IPA**; download the artifact. Sideloa
 ## Session log
 
 - 2026-11-18: Repo created (public, ColeMcClintock/dragon-tales). Shipped art + JSON imported from the Nov 12 IPA. SpriteKit stub + unsigned IPA workflow added. Milestone 1 compiling stub is in place; island scene not built yet.
+- 2026-11-18: Milestone 1 baseline loop pushed (ef45885): island pan/zoom/select, gold HUD (start = habitat 380 + egg 220), shop tabs, habitat placement, nursery timers + hatch, habitat picker, income/collect, actions, Codable save. Not checked off: GitHub Actions is disabled for the ColeMcClintock account (0 runs; dispatch returns HTTP 422), so the IPA build is unverified.

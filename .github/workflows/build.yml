@@ -1,0 +1,62 @@
+name: Build unsigned IPA
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Tooling
+        run: |
+          xcodebuild -version
+          brew install xcodegen || brew upgrade xcodegen || true
+          xcodegen --version
+
+      - name: Generate project
+        run: xcodegen generate
+
+      - name: Build (iphoneos, unsigned)
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project DragonTales.xcodeproj \
+            -scheme DragonTales \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build \
+            ARCHS=arm64 ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            build 2>&1 | tee build.log | grep -E "error:|warning: .*deprecated|BUILD (SUCCEEDED|FAILED)" || true
+          test -d build/Build/Products/Release-iphoneos/DragonTales.app
+
+      - name: Package IPA
+        run: |
+          rm -rf Payload && mkdir Payload
+          cp -R build/Build/Products/Release-iphoneos/DragonTales.app Payload/
+          lipo -info Payload/DragonTales.app/DragonTales
+          zip -qry DragonTales-unsigned.ipa Payload
+          ls -lh DragonTales-unsigned.ipa
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DragonTales-unsigned-ipa
+          path: DragonTales-unsigned.ipa
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-log
+          path: build.log
+          retention-days: 7

@@ -1,0 +1,120 @@
+{
+  "starting": {
+    "coins": 4200,
+    "gems": 20,
+    "food": 6,
+    "layout": [
+      { "kind": "grove", "col": 0, "row": 1 },
+      { "kind": "hatchery", "col": -2, "row": 2 },
+      { "kind": "habitat", "element": "fire", "col": 2, "row": 2, "starterSpecies": "blaze" },
+      { "kind": "farm", "col": 0, "row": -2, "crop": "sunberry" }
+    ]
+  },
+  "playerXPThresholds": [0, 70, 155, 255, 370, 500, 645, 805, 980, 1170, 1375, 1595, 1830, 2080, 2345, 2625, 2920, 3230, 3555, 3895, 4250, 4620, 5005, 5405, 5820, 6250, 6695, 7155, 7630, 8120],
+  "xpAwards": { "hatch": 12, "discover": 28, "feed": 5, "breed": 8 },
+  "gems": { "levelUp": 3, "discover": 6, "secondsPerGem": 90, "minimumSkipCost": 1 },
+  "rarities": {
+    "common": { "color": "#7E8AA0", "sort": 0 },
+    "rare": { "color": "#3B82F6", "sort": 1 },
+    "epic": { "color": "#A855F7", "sort": 2 },
+    "legendary": { "color": "#F5B301", "sort": 3 }
+  },
+  "elements": [
+    { "id": "fire", "name": "Fire", "color": "#FF6A3D", "egg": "egg_fire.png", "habitat": "habitat_fire.png" },
+    { "id": "water", "name": "Water", "color": "#2EB7FF", "egg": "egg_water.png", "habitat": "habitat_water.png" },
+    { "id": "earth", "name": "Earth", "color": "#C4954A", "egg": "egg_earth.png", "habitat": "habitat_earth.png" },
+    { "id": "air", "name": "Air", "color": "#8FD4F2", "egg": "egg_air.png", "habitat": "habitat_air.png" },
+    { "id": "lightning", "name": "Lightning", "color": "#FFD23A", "egg": "egg_lightning.png", "habitat": "habitat_lightning.png" },
+    { "id": "plant", "name": "Plant", "color": "#4CCB5A", "egg": "egg_plant.png", "habitat": "habitat_plant.png" },
+    { "id": "ice", "name": "Ice", "color": "#9AD7FF", "egg": "egg_ice.png", "habitat": "habitat_ice.png" },
+    { "id": "light", "name": "Light", "color": "#FFE08A", "egg": "egg_light.png", "habitat": "habitat_light.png" },
+    { "id": "metal", "name": "Metal", "color": "#B0BCCC", "egg": "egg_metal.png", "habitat": "habitat_metal.png" },
+    { "id": "star", "name": "Star", "color": "#F6C945", "egg": "egg_star.png", "habitat": "habitat_star.png" }
+  ],
+  "dragons": [],
+  "breeding": {
+    "costCoins": 120,
+    "recipes": [],
+    "rarityWeights": { "common": 50, "rare": 28, "epic": 14, "legendary": 6 }
+  },
+  "hatchery": {
+    "slots": 4,
+    "secondsByRarity": { "common": 120, "rare": 900, "epic": 5400, "legendary": 14400 }
+  },
+  "habitats": {
+    "capacity": 4,
+    "coinsPerMinute": 12,
+    "levelBonusPerLevel": 0.18,
+    "storageCap": 4800,
+    "maxOfflineSeconds": 43200
+  },
+  "farms": {
+    "growSeconds": 45,
+    "foodPerHarvest": 2,
+    "maxStored": 8,
+    "cost": 300,
+    "sprite": "building_farm.png",
+    "name": "Garden Bed",
+    "crops": [
+      { "id": "sunberry", "name": "Sunberry", "seconds": 45, "food": 1 },
+      { "id": "nibbleroot", "name": "Nibble Root", "seconds": 180, "food": 2 },
+      { "id": "puffmelon", "name": "Puff Melon", "seconds": 900, "food": 4 },
+      { "id": "stargrain", "name": "Star Grain", "seconds": 2700, "food": 6 }
+    ]
+  },
+  "feeding": {
+    "foodPerFeed": 1,
+    "dragonXP": 8,
+    "maxLevel": 10,
+    "xpToNext": [20, 30, 45, 60, 80, 110, 140, 180, 230]
+  },
+  "combatStats": { "baseHP": 24, "hpPerLevel": 7, "baseAttack": 6, "attackPerLevel": 2 },
+  "shop": {
+    "baseEggCost": 220,
+    "habitatCost": 380,
+    "decorations": [
+      { "id": "lantern", "name": "Garden Lantern", "cost": 80, "sprite": "deco_lantern.png" },
+      { "id": "flowers", "name": "Flower Bush", "cost": 60, "sprite": "deco_flower_bush.png" },
+      { "id": "fountain", "name": "Garden Fountain", "cost": 140, "sprite": "deco_fountain.png" },
+      { "id": "tree", "name": "Meadow Tree", "cost": 90, "sprite": "deco_tree.png" },
+      { "id": "rock", "name": "Mossy Rock", "cost": 50, "sprite": "deco_rock.png" },
+      { "id": "bridge", "name": "Wood Bridge", "cost": 120, "sprite": "deco_bridge.png" }
+    ]
+  },
+  "island": {
+    "ground": "island_base.png",
+    "halfWidth": 1500,
+    "halfHeight": 1200,
+    "minSpacing": 96,
+    "displayWidth": 1248,
+    "displayHeight": 1056,
+    "cell": 96,
+    "minZoom": 0.55,
+    "maxZoom": 5.2,
+    "plots": [
+      { "id": "home", "name": "Home Meadow", "cost": 0, "minCol": -6, "maxCol": 6, "minRow": -5, "maxRow": 5, "startsUnlocked": true, "sprite": "island_base.png" },
+      { "id": "east", "name": "Sunrise Patch", "cost": 600, "minCol": 7, "maxCol": 14, "minRow": -4, "maxRow": 4, "startsUnlocked": false, "sprite": "expansion_plot.png" },
+      { "id": "west", "name": "West Orchard", "cost": 900, "minCol": -14, "maxCol": -7, "minRow": -4, "maxRow": 4, "startsUnlocked": false, "sprite": "expansion_plot.png" },
+      { "id": "north", "name": "High Clover", "cost": 1400, "minCol": -5, "maxCol": 5, "minRow": 6, "maxRow": 12, "startsUnlocked": false, "sprite": "expansion_plot.png" }
+    ]
+  },
+  "buildings": {
+    "grove": { "name": "Breeding Grove", "sprite": "building_grove.png" },
+    "hatchery": { "name": "Hatchery", "sprite": "building_hatchery.png" }
+  },
+  "sellRefundRatio": 0.5,
+  "ui": {
+    "coin": "icon_coin.png",
+    "gem": "icon_gem.png",
+    "food": "icon_food.png",
+    "xp": "icon_xp.png",
+    "cloud": "cloud_1.png",
+    "mysteryEgg": "egg_rare.png",
+    "sky": "sky_background.jpg",
+    "islandBase": "island_base.png",
+    "cliff": "cliff_edge.png",
+    "grass": "tile_grass.jpg",
+    "path": "tile_dirt_path.jpg",
+    "expansion": "expansion_plot.png"
+  }
+}

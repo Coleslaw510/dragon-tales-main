@@ -1,0 +1,52 @@
+name: DragonTales
+options:
+  bundleIdPrefix: com.coleslaw510
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+    CODE_SIGNING_ALLOWED: NO
+    CODE_SIGN_IDENTITY: ""
+    DEVELOPMENT_TEAM: ""
+targets:
+  DragonTales:
+    type: application
+    platform: iOS
+    scheme: {}
+    sources:
+      - path: App
+      - path: Art
+        type: folder
+        buildPhase: resources
+      - path: Data
+        type: folder
+        buildPhase: resources
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: Dragon Tales
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+        UILaunchScreen:
+          UIColorName: ""
+        UIRequiresFullScreen: true
+        UIStatusBarHidden: true
+        UIViewControllerBasedStatusBarAppearance: false
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        ITSAppUsesNonExemptEncryption: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.coleslaw510.dragontales
+        PRODUCT_NAME: DragonTales
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        COMPRESS_PNG_FILES: NO
+        STRIP_PNG_TEXT: NO
+        ENABLE_BITCODE: NO
+        CODE_SIGNING_ALLOWED: NO
+        CODE_SIGN_IDENTITY: ""
+        DEVELOPMENT_TEAM: ""
+        INFOPLIST_KEY_UIStatusBarHidden: YES

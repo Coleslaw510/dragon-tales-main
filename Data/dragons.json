@@ -1,0 +1,3107 @@
+{
+  "dragons": [
+    {
+      "id": "blaze",
+      "name": "Blaze",
+      "elements": [
+        "fire"
+      ],
+      "rarity": "common",
+      "kind": "base",
+      "sprite": "blaze.png",
+      "blurb": "A sunny fire dragon who sneezes sparks.",
+      "incubateSeconds": 210,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 147
+    },
+    {
+      "id": "tide",
+      "name": "Tide",
+      "elements": [
+        "water"
+      ],
+      "rarity": "common",
+      "kind": "base",
+      "sprite": "tide.png",
+      "blurb": "A puddle-loving swimmer with finned wings.",
+      "incubateSeconds": 150,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 105
+    },
+    {
+      "id": "pebble",
+      "name": "Pebble",
+      "elements": [
+        "earth"
+      ],
+      "rarity": "common",
+      "kind": "base",
+      "sprite": "pebble.png",
+      "blurb": "A round rock dragon who naps in the moss.",
+      "incubateSeconds": 90,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 63
+    },
+    {
+      "id": "breeze",
+      "name": "Breeze",
+      "elements": [
+        "air"
+      ],
+      "rarity": "common",
+      "kind": "base",
+      "sprite": "breeze.png",
+      "blurb": "A cloud-soft dragon who floats more than he walks.",
+      "incubateSeconds": 120,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 84
+    },
+    {
+      "id": "spark",
+      "name": "Spark",
+      "elements": [
+        "lightning"
+      ],
+      "rarity": "common",
+      "kind": "base",
+      "sprite": "spark.png",
+      "blurb": "A zippy dragon with a crackling tail.",
+      "incubateSeconds": 240,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 168
+    },
+    {
+      "id": "fern",
+      "name": "Fern",
+      "elements": [
+        "plant"
+      ],
+      "rarity": "common",
+      "kind": "base",
+      "sprite": "fern.png",
+      "blurb": "A garden dragon who grows a flower behind one ear.",
+      "incubateSeconds": 120,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 84
+    },
+    {
+      "id": "frost",
+      "name": "Frost",
+      "elements": [
+        "ice"
+      ],
+      "rarity": "common",
+      "kind": "base",
+      "sprite": "frost.png",
+      "blurb": "A quiet ice dragon with a snowcap of horns.",
+      "incubateSeconds": 90,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 63
+    },
+    {
+      "id": "gleam",
+      "name": "Gleam",
+      "elements": [
+        "light"
+      ],
+      "rarity": "common",
+      "kind": "base",
+      "sprite": "gleam.png",
+      "blurb": "A golden dragon who leaves little sparkles in the grass.",
+      "incubateSeconds": 150,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 105
+    },
+    {
+      "id": "rivet",
+      "name": "Rivet",
+      "elements": [
+        "metal"
+      ],
+      "rarity": "common",
+      "kind": "base",
+      "sprite": "rivet.png",
+      "blurb": "A button-bright dragon with a little gear horn.",
+      "incubateSeconds": 150,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 105
+    },
+    {
+      "id": "twinkle",
+      "name": "Twinkle",
+      "elements": [
+        "star"
+      ],
+      "rarity": "common",
+      "kind": "base",
+      "sprite": "twinkle.png",
+      "blurb": "A velvety purple dragon dotted with little stars.",
+      "incubateSeconds": 120,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 84,
+      "old_id": "dusk"
+    },
+    {
+      "id": "steam",
+      "name": "Steam",
+      "elements": [
+        "fire",
+        "water"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "steam.png",
+      "blurb": "A kettle-warm dragon who puffs little clouds.",
+      "recipeElements": [
+        "fire",
+        "water"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 660,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 462
+    },
+    {
+      "id": "fizz",
+      "name": "Fizz",
+      "elements": [
+        "fire",
+        "water"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "fizz.png",
+      "blurb": "A bubbly dragon who pops with warm fizzy foam.",
+      "recipeElements": [
+        "fire",
+        "water"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 5100,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3570,
+      "is_new": true
+    },
+    {
+      "id": "clay",
+      "name": "Clay",
+      "elements": [
+        "fire",
+        "earth"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "clay.png",
+      "blurb": "A warm, dusty dragon with sun-baked cheeks.",
+      "recipeElements": [
+        "fire",
+        "earth"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 720,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 504
+    },
+    {
+      "id": "lava",
+      "name": "Lava",
+      "elements": [
+        "fire",
+        "earth"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "lava.png",
+      "blurb": "A glowing rock dragon with bright melted stripes.",
+      "recipeElements": [
+        "fire",
+        "earth"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 5400,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3780,
+      "is_new": true
+    },
+    {
+      "id": "smoke",
+      "name": "Smoke",
+      "elements": [
+        "fire",
+        "air"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "smoke.png",
+      "blurb": "A breezy gray dragon who leaves tiny curls of smoke.",
+      "recipeElements": [
+        "fire",
+        "air"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1380,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 966,
+      "old_id": "soot"
+    },
+    {
+      "id": "lantern",
+      "name": "Lantern",
+      "elements": [
+        "fire",
+        "air"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "lantern.png",
+      "blurb": "A glowing paper-lantern dragon who drifts on the breeze.",
+      "recipeElements": [
+        "fire",
+        "air"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 5220,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3654,
+      "is_new": true
+    },
+    {
+      "id": "crackle",
+      "name": "Crackle",
+      "elements": [
+        "fire",
+        "lightning"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "crackle.png",
+      "blurb": "A poppy fire dragon whose sparks snap and crackle.",
+      "recipeElements": [
+        "fire",
+        "lightning"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1260,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 882,
+      "is_new": true
+    },
+    {
+      "id": "bolt",
+      "name": "Bolt",
+      "elements": [
+        "fire",
+        "lightning"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "bolt.png",
+      "blurb": "A crackling dragon with a bolt for a tail.",
+      "recipeElements": [
+        "fire",
+        "lightning"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 5910,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 4137,
+      "old_id": "surge"
+    },
+    {
+      "id": "ember",
+      "name": "Ember",
+      "elements": [
+        "fire",
+        "plant"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "ember.png",
+      "blurb": "A bright hatchling with a warm flame mane.",
+      "recipeElements": [
+        "fire",
+        "plant"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1170,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 819
+    },
+    {
+      "id": "chili",
+      "name": "Chili",
+      "elements": [
+        "fire",
+        "plant"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "chili.png",
+      "blurb": "A spicy red-pepper dragon with a leafy cap.",
+      "recipeElements": [
+        "fire",
+        "plant"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4980,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3486,
+      "is_new": true
+    },
+    {
+      "id": "popsicle",
+      "name": "Popsicle",
+      "elements": [
+        "fire",
+        "ice"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "popsicle.png",
+      "blurb": "A melting popsicle dragon who drips sweet icy drops.",
+      "recipeElements": [
+        "fire",
+        "ice"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1320,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 924,
+      "is_new": true
+    },
+    {
+      "id": "melt",
+      "name": "Melt",
+      "elements": [
+        "fire",
+        "ice"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "melt.png",
+      "blurb": "A drip-nosed dragon who melts and refreezes.",
+      "recipeElements": [
+        "fire",
+        "ice"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 6540,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 4578,
+      "old_id": "thaw"
+    },
+    {
+      "id": "candle",
+      "name": "Candle",
+      "elements": [
+        "fire",
+        "light"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "candle.png",
+      "blurb": "A cozy candle dragon with a tiny warm flame.",
+      "recipeElements": [
+        "fire",
+        "light"
+      ],
+      "recipeChance": 0.8,
+      "incubateSeconds": 1140,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 798,
+      "is_new": true
+    },
+    {
+      "id": "sun",
+      "name": "Sun",
+      "elements": [
+        "fire",
+        "light"
+      ],
+      "rarity": "legendary",
+      "kind": "combo",
+      "sprite": "sun.png",
+      "blurb": "A sunrise dragon who shines like a little sun.",
+      "recipeElements": [
+        "fire",
+        "light"
+      ],
+      "recipeChance": 0.2,
+      "incubateSeconds": 15540,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 10878,
+      "old_id": "sol"
+    },
+    {
+      "id": "grill",
+      "name": "Grill",
+      "elements": [
+        "fire",
+        "metal"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "grill.png",
+      "blurb": "A backyard grill dragon who smells like toast.",
+      "recipeElements": [
+        "fire",
+        "metal"
+      ],
+      "recipeChance": 0.8,
+      "incubateSeconds": 1200,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 840,
+      "is_new": true
+    },
+    {
+      "id": "copper",
+      "name": "Copper",
+      "elements": [
+        "fire",
+        "metal"
+      ],
+      "rarity": "legendary",
+      "kind": "combo",
+      "sprite": "copper.png",
+      "blurb": "A plated copper dragon who glows at the seams.",
+      "recipeElements": [
+        "fire",
+        "metal"
+      ],
+      "recipeChance": 0.2,
+      "incubateSeconds": 16950,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 11865,
+      "old_id": "kiln"
+    },
+    {
+      "id": "comet",
+      "name": "Comet",
+      "elements": [
+        "fire",
+        "star"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "comet.png",
+      "blurb": "A streaking fireball dragon with a starry tail.",
+      "recipeElements": [
+        "fire",
+        "star"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 6480,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 4536,
+      "old_id": "smolder"
+    },
+    {
+      "id": "firework",
+      "name": "Firework",
+      "elements": [
+        "fire",
+        "star"
+      ],
+      "rarity": "legendary",
+      "kind": "combo",
+      "sprite": "firework.png",
+      "blurb": "A burst of colorful sparks that looks like a party in the sky.",
+      "recipeElements": [
+        "fire",
+        "star"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 18000,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 12600,
+      "is_new": true
+    },
+    {
+      "id": "mud",
+      "name": "Mud",
+      "elements": [
+        "water",
+        "earth"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "mud.png",
+      "blurb": "A squishy dragon who loves puddles and mud.",
+      "recipeElements": [
+        "water",
+        "earth"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 780,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 546,
+      "old_id": "bog"
+    },
+    {
+      "id": "beach",
+      "name": "Beach",
+      "elements": [
+        "water",
+        "earth"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "beach.png",
+      "blurb": "A sandy seaside dragon with a little shell-less smile.",
+      "recipeElements": [
+        "water",
+        "earth"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4860,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3402,
+      "is_new": true
+    },
+    {
+      "id": "mist",
+      "name": "Mist",
+      "elements": [
+        "water",
+        "air"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "mist.png",
+      "blurb": "A see-through dragon made of morning fog.",
+      "recipeElements": [
+        "water",
+        "air"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 660,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 462
+    },
+    {
+      "id": "rain",
+      "name": "Rain",
+      "elements": [
+        "water",
+        "air"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "rain.png",
+      "blurb": "A drip-winged dragon who sprinkles friendly raindrops.",
+      "recipeElements": [
+        "water",
+        "air"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4680,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3276,
+      "is_new": true
+    },
+    {
+      "id": "eel",
+      "name": "Eel",
+      "elements": [
+        "water",
+        "lightning"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "eel.png",
+      "blurb": "A slippery swimmer with a zappy, glowing stripe.",
+      "recipeElements": [
+        "water",
+        "lightning"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1440,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 1008,
+      "is_new": true
+    },
+    {
+      "id": "jolt",
+      "name": "Jolt",
+      "elements": [
+        "water",
+        "lightning"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "jolt.png",
+      "blurb": "A zappy swimmer with bright fins.",
+      "recipeElements": [
+        "water",
+        "lightning"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4020,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 2814,
+      "old_id": "current"
+    },
+    {
+      "id": "dew",
+      "name": "Dew",
+      "elements": [
+        "water",
+        "plant"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "dew.png",
+      "blurb": "A leaf-winged dragon covered in droplets.",
+      "recipeElements": [
+        "water",
+        "plant"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1500,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 1050
+    },
+    {
+      "id": "lily",
+      "name": "Lily",
+      "elements": [
+        "water",
+        "plant"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "lily.png",
+      "blurb": "A water-lily dragon with a pink flower on her head.",
+      "recipeElements": [
+        "water",
+        "plant"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 5040,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3528,
+      "is_new": true
+    },
+    {
+      "id": "iceberg",
+      "name": "Iceberg",
+      "elements": [
+        "water",
+        "ice"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "iceberg.png",
+      "blurb": "A chunky floating ice dragon who loves cold water.",
+      "recipeElements": [
+        "water",
+        "ice"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1380,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 966,
+      "is_new": true
+    },
+    {
+      "id": "slush",
+      "name": "Slush",
+      "elements": [
+        "water",
+        "ice"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "slush.png",
+      "blurb": "A melting puddle of a dragon who always smiles.",
+      "recipeElements": [
+        "water",
+        "ice"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 6720,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 4704
+    },
+    {
+      "id": "rainbow",
+      "name": "Rainbow",
+      "elements": [
+        "water",
+        "light"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "rainbow.png",
+      "blurb": "A colorful dragon with rainbow wings and a sunny splash.",
+      "recipeElements": [
+        "water",
+        "light"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1050,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 735,
+      "old_id": "pearl"
+    },
+    {
+      "id": "lighthouse",
+      "name": "Lighthouse",
+      "elements": [
+        "water",
+        "light"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "lighthouse.png",
+      "blurb": "A striped tower dragon who keeps a bright, steady light.",
+      "recipeElements": [
+        "water",
+        "light"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 5340,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3738,
+      "is_new": true
+    },
+    {
+      "id": "float",
+      "name": "Float",
+      "elements": [
+        "water",
+        "metal"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "float.png",
+      "blurb": "A round metal dragon who floats in a little swim ring.",
+      "recipeElements": [
+        "water",
+        "metal"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 840,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 588,
+      "old_id": "buoy"
+    },
+    {
+      "id": "boat",
+      "name": "Boat",
+      "elements": [
+        "water",
+        "metal"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "boat.png",
+      "blurb": "A tiny tugboat dragon who chugs across the pond.",
+      "recipeElements": [
+        "water",
+        "metal"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4500,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3150,
+      "is_new": true
+    },
+    {
+      "id": "wave",
+      "name": "Wave",
+      "elements": [
+        "water",
+        "star"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "wave.png",
+      "blurb": "A rolling-wave dragon with a trail of little stars.",
+      "recipeElements": [
+        "water",
+        "star"
+      ],
+      "recipeChance": 0.8,
+      "incubateSeconds": 1260,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 882,
+      "is_new": true
+    },
+    {
+      "id": "starfish",
+      "name": "Starfish",
+      "elements": [
+        "water",
+        "star"
+      ],
+      "rarity": "legendary",
+      "kind": "combo",
+      "sprite": "starfish.png",
+      "blurb": "A star-shaped sea dragon who hugs the sand.",
+      "recipeElements": [
+        "water",
+        "star"
+      ],
+      "recipeChance": 0.2,
+      "incubateSeconds": 14460,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 10122,
+      "old_id": "ink"
+    },
+    {
+      "id": "sand",
+      "name": "Sand",
+      "elements": [
+        "earth",
+        "air"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "sand.png",
+      "blurb": "A wind-carved dragon with sandy stripes.",
+      "recipeElements": [
+        "earth",
+        "air"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1380,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 966,
+      "old_id": "mesa"
+    },
+    {
+      "id": "tornado",
+      "name": "Tornado",
+      "elements": [
+        "earth",
+        "air"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "tornado.png",
+      "blurb": "A swirling dusty dragon who spins but never scares.",
+      "recipeElements": [
+        "earth",
+        "air"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 5160,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3612,
+      "is_new": true
+    },
+    {
+      "id": "boulder",
+      "name": "Boulder",
+      "elements": [
+        "earth",
+        "lightning"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "boulder.png",
+      "blurb": "A big rock dragon with bright electric cracks.",
+      "recipeElements": [
+        "earth",
+        "lightning"
+      ],
+      "recipeChance": 0.8,
+      "incubateSeconds": 1500,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 1050,
+      "is_new": true
+    },
+    {
+      "id": "rumble",
+      "name": "Rumble",
+      "elements": [
+        "earth",
+        "lightning"
+      ],
+      "rarity": "legendary",
+      "kind": "combo",
+      "sprite": "rumble.png",
+      "blurb": "A stormy rock dragon who hums when thunder rolls.",
+      "recipeElements": [
+        "earth",
+        "lightning"
+      ],
+      "recipeChance": 0.2,
+      "incubateSeconds": 17670,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 12369,
+      "old_id": "quartz"
+    },
+    {
+      "id": "moss",
+      "name": "Moss",
+      "elements": [
+        "earth",
+        "plant"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "moss.png",
+      "blurb": "A sleepy shell of moss, mushrooms, and flowers.",
+      "recipeElements": [
+        "earth",
+        "plant"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1110,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 777
+    },
+    {
+      "id": "cactus",
+      "name": "Cactus",
+      "elements": [
+        "earth",
+        "plant"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "cactus.png",
+      "blurb": "A friendly cactus dragon with a little pink flower.",
+      "recipeElements": [
+        "earth",
+        "plant"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4920,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3444,
+      "is_new": true
+    },
+    {
+      "id": "snowrock",
+      "name": "Snowrock",
+      "elements": [
+        "earth",
+        "ice"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "snowrock.png",
+      "blurb": "A cool stone dragon with frost on his horns.",
+      "recipeElements": [
+        "earth",
+        "ice"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1500,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 1050,
+      "old_id": "slate"
+    },
+    {
+      "id": "igloo",
+      "name": "Igloo",
+      "elements": [
+        "earth",
+        "ice"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "igloo.png",
+      "blurb": "A round snow-house dragon who stays toasty inside.",
+      "recipeElements": [
+        "earth",
+        "ice"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 5280,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3696,
+      "is_new": true
+    },
+    {
+      "id": "dawn",
+      "name": "Dawn",
+      "elements": [
+        "earth",
+        "light"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "dawn.png",
+      "blurb": "A sunlit hill dragon who wakes up gold in the morning.",
+      "recipeElements": [
+        "earth",
+        "light"
+      ],
+      "recipeChance": 0.8,
+      "incubateSeconds": 1410,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 987,
+      "is_new": true
+    },
+    {
+      "id": "sunrock",
+      "name": "Sunrock",
+      "elements": [
+        "earth",
+        "light"
+      ],
+      "rarity": "legendary",
+      "kind": "combo",
+      "sprite": "sunrock.png",
+      "blurb": "A warm rock dragon who holds the morning sun.",
+      "recipeElements": [
+        "earth",
+        "light"
+      ],
+      "recipeChance": 0.2,
+      "incubateSeconds": 18630,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 13041,
+      "old_id": "crystal"
+    },
+    {
+      "id": "iron",
+      "name": "Iron",
+      "elements": [
+        "earth",
+        "metal"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "iron.png",
+      "blurb": "A sturdy gray dragon with simple iron plates.",
+      "recipeElements": [
+        "earth",
+        "metal"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1200,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 840,
+      "is_new": true
+    },
+    {
+      "id": "nugget",
+      "name": "Nugget",
+      "elements": [
+        "earth",
+        "metal"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "nugget.png",
+      "blurb": "A chunky dragon with shiny gold flecks.",
+      "recipeElements": [
+        "earth",
+        "metal"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 3900,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 2730,
+      "old_id": "ore"
+    },
+    {
+      "id": "meteor",
+      "name": "Meteor",
+      "elements": [
+        "earth",
+        "star"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "meteor.png",
+      "blurb": "A round space-rock dragon who fell in a sparkly streak.",
+      "recipeElements": [
+        "earth",
+        "star"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 6090,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 4263,
+      "old_id": "burrow"
+    },
+    {
+      "id": "planet",
+      "name": "Planet",
+      "elements": [
+        "earth",
+        "star"
+      ],
+      "rarity": "legendary",
+      "kind": "combo",
+      "sprite": "planet.png",
+      "blurb": "A little world dragon with bright continents and stars.",
+      "recipeElements": [
+        "earth",
+        "star"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 17400,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 12180,
+      "is_new": true
+    },
+    {
+      "id": "thunder",
+      "name": "Thunder",
+      "elements": [
+        "air",
+        "lightning"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "thunder.png",
+      "blurb": "A rumbling gray-blue dragon with a booming chest.",
+      "recipeElements": [
+        "air",
+        "lightning"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1320,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 924,
+      "is_new": true
+    },
+    {
+      "id": "storm",
+      "name": "Storm",
+      "elements": [
+        "air",
+        "lightning"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "storm.png",
+      "blurb": "A rumbling cloud dragon with a lightning tail.",
+      "recipeElements": [
+        "air",
+        "lightning"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 3630,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 2541
+    },
+    {
+      "id": "dandelion",
+      "name": "Dandelion",
+      "elements": [
+        "air",
+        "plant"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "dandelion.png",
+      "blurb": "A fluffy seed dragon who blows away on a wish of wind.",
+      "recipeElements": [
+        "air",
+        "plant"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1180,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 826,
+      "is_new": true
+    },
+    {
+      "id": "pollen",
+      "name": "Pollen",
+      "elements": [
+        "air",
+        "plant"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "pollen.png",
+      "blurb": "A floaty dragon who sneezes petals.",
+      "recipeElements": [
+        "air",
+        "plant"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4020,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 2814
+    },
+    {
+      "id": "flurry",
+      "name": "Flurry",
+      "elements": [
+        "air",
+        "ice"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "flurry.png",
+      "blurb": "A snow-puff dragon who rides the wind.",
+      "recipeElements": [
+        "air",
+        "ice"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 990,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 693
+    },
+    {
+      "id": "snow",
+      "name": "Snow",
+      "elements": [
+        "air",
+        "ice"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "snow.png",
+      "blurb": "A chubby snow dragon who leaves soft white footprints.",
+      "recipeElements": [
+        "air",
+        "ice"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4740,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3318,
+      "is_new": true
+    },
+    {
+      "id": "sky",
+      "name": "Sky",
+      "elements": [
+        "air",
+        "light"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "sky.png",
+      "blurb": "A bright blue sky dragon with wide sunny wings.",
+      "recipeElements": [
+        "air",
+        "light"
+      ],
+      "recipeChance": 0.8,
+      "incubateSeconds": 1080,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 756,
+      "is_new": true
+    },
+    {
+      "id": "cloud",
+      "name": "Cloud",
+      "elements": [
+        "air",
+        "light"
+      ],
+      "rarity": "legendary",
+      "kind": "combo",
+      "sprite": "cloud.png",
+      "blurb": "A glowing golden cloud dragon who naps on a puff.",
+      "recipeElements": [
+        "air",
+        "light"
+      ],
+      "recipeChance": 0.2,
+      "incubateSeconds": 15420,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 10794,
+      "old_id": "nimbus"
+    },
+    {
+      "id": "tin",
+      "name": "Tin",
+      "elements": [
+        "air",
+        "metal"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "tin.png",
+      "blurb": "A tin-winged dragon who whistles in the wind.",
+      "recipeElements": [
+        "air",
+        "metal"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 780,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 546,
+      "old_id": "draft"
+    },
+    {
+      "id": "airplane",
+      "name": "Airplane",
+      "elements": [
+        "air",
+        "metal"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "airplane.png",
+      "blurb": "A little metal plane dragon who loves to zoom.",
+      "recipeElements": [
+        "air",
+        "metal"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4440,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3108,
+      "is_new": true
+    },
+    {
+      "id": "starcloud",
+      "name": "Starcloud",
+      "elements": [
+        "air",
+        "star"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "starcloud.png",
+      "blurb": "A soft purple cloud dragon dusted with little stars.",
+      "recipeElements": [
+        "air",
+        "star"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1200,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 840,
+      "old_id": "wisp"
+    },
+    {
+      "id": "galaxy",
+      "name": "Galaxy",
+      "elements": [
+        "air",
+        "star"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "galaxy.png",
+      "blurb": "A colorful night-sky dragon painted with bright stars.",
+      "recipeElements": [
+        "air",
+        "star"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 5400,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3780,
+      "is_new": true
+    },
+    {
+      "id": "ivy",
+      "name": "Ivy",
+      "elements": [
+        "lightning",
+        "plant"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "ivy.png",
+      "blurb": "A leafy dragon whose vines stand on end when she zaps.",
+      "recipeElements": [
+        "lightning",
+        "plant"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1260,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 882,
+      "old_id": "static"
+    },
+    {
+      "id": "thorn",
+      "name": "Thorn",
+      "elements": [
+        "lightning",
+        "plant"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "thorn.png",
+      "blurb": "A spiky green dragon with bright yellow electric thorns.",
+      "recipeElements": [
+        "lightning",
+        "plant"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4860,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3402,
+      "is_new": true
+    },
+    {
+      "id": "icicle",
+      "name": "Icicle",
+      "elements": [
+        "lightning",
+        "ice"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "icicle.png",
+      "blurb": "A pointy ice dragon with a tiny electric glint.",
+      "recipeElements": [
+        "lightning",
+        "ice"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1200,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 840,
+      "is_new": true
+    },
+    {
+      "id": "hail",
+      "name": "Hail",
+      "elements": [
+        "lightning",
+        "ice"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "hail.png",
+      "blurb": "A bouncing dragon made of bright ice pebbles.",
+      "recipeElements": [
+        "lightning",
+        "ice"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4560,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3192
+    },
+    {
+      "id": "lightbulb",
+      "name": "Lightbulb",
+      "elements": [
+        "lightning",
+        "light"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "lightbulb.png",
+      "blurb": "A glass-bright dragon who clicks on like a lamp.",
+      "recipeElements": [
+        "lightning",
+        "light"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1140,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 798,
+      "is_new": true
+    },
+    {
+      "id": "flash",
+      "name": "Flash",
+      "elements": [
+        "lightning",
+        "light"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "flash.png",
+      "blurb": "A blink-and-you-smile dragon full of bright light.",
+      "recipeElements": [
+        "lightning",
+        "light"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 3750,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 2625
+    },
+    {
+      "id": "steel",
+      "name": "Steel",
+      "elements": [
+        "lightning",
+        "metal"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "steel.png",
+      "blurb": "A coil-tailed steel dragon who sparks when happy.",
+      "recipeElements": [
+        "lightning",
+        "metal"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1320,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 924,
+      "old_id": "amp"
+    },
+    {
+      "id": "magnet",
+      "name": "Magnet",
+      "elements": [
+        "lightning",
+        "metal"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "magnet.png",
+      "blurb": "A horseshoe-horn dragon who sticks to the fridge.",
+      "recipeElements": [
+        "lightning",
+        "metal"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4800,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3360,
+      "is_new": true
+    },
+    {
+      "id": "sparkler",
+      "name": "Sparkler",
+      "elements": [
+        "lightning",
+        "star"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "sparkler.png",
+      "blurb": "A party-spark dragon who fizzes little stars.",
+      "recipeElements": [
+        "lightning",
+        "star"
+      ],
+      "recipeChance": 0.8,
+      "incubateSeconds": 1380,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 966,
+      "is_new": true
+    },
+    {
+      "id": "zap",
+      "name": "Zap",
+      "elements": [
+        "lightning",
+        "star"
+      ],
+      "rarity": "legendary",
+      "kind": "combo",
+      "sprite": "zap.png",
+      "blurb": "A zippy star dragon who pops with bright sparks.",
+      "recipeElements": [
+        "lightning",
+        "star"
+      ],
+      "recipeChance": 0.2,
+      "incubateSeconds": 15570,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 10899,
+      "old_id": "flicker"
+    },
+    {
+      "id": "mint",
+      "name": "Mint",
+      "elements": [
+        "plant",
+        "ice"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "mint.png",
+      "blurb": "A cool green dragon who smells like a garden.",
+      "recipeElements": [
+        "plant",
+        "ice"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1140,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 798
+    },
+    {
+      "id": "pine",
+      "name": "Pine",
+      "elements": [
+        "plant",
+        "ice"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "pine.png",
+      "blurb": "A snowy evergreen dragon with frosted needles.",
+      "recipeElements": [
+        "plant",
+        "ice"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4980,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3486,
+      "is_new": true
+    },
+    {
+      "id": "bloom",
+      "name": "Bloom",
+      "elements": [
+        "plant",
+        "light"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "bloom.png",
+      "blurb": "A flower-crowned dragon who glows at noon.",
+      "recipeElements": [
+        "plant",
+        "light"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 4740,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3318
+    },
+    {
+      "id": "sunflower",
+      "name": "Sunflower",
+      "elements": [
+        "plant",
+        "light"
+      ],
+      "rarity": "legendary",
+      "kind": "combo",
+      "sprite": "sunflower.png",
+      "blurb": "A tall sunny dragon with a big yellow flower face.",
+      "recipeElements": [
+        "plant",
+        "light"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 17100,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 11970,
+      "is_new": true
+    },
+    {
+      "id": "gear",
+      "name": "Gear",
+      "elements": [
+        "plant",
+        "metal"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "gear.png",
+      "blurb": "A vine-wrapped gear dragon who ticks when happy.",
+      "recipeElements": [
+        "plant",
+        "metal"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 870,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 609,
+      "old_id": "cog"
+    },
+    {
+      "id": "robot",
+      "name": "Robot",
+      "elements": [
+        "plant",
+        "metal"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "robot.png",
+      "blurb": "A kindly robot dragon with a flower sprouting from one ear.",
+      "recipeElements": [
+        "plant",
+        "metal"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4620,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3234,
+      "is_new": true
+    },
+    {
+      "id": "clover",
+      "name": "Clover",
+      "elements": [
+        "plant",
+        "star"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "clover.png",
+      "blurb": "A shy garden dragon with a lucky four-leaf clover.",
+      "recipeElements": [
+        "plant",
+        "star"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1500,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 1050,
+      "old_id": "mulch"
+    },
+    {
+      "id": "starfruit",
+      "name": "Starfruit",
+      "elements": [
+        "plant",
+        "star"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "starfruit.png",
+      "blurb": "A yellow star-shaped fruit dragon with leafy wings.",
+      "recipeElements": [
+        "plant",
+        "star"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 5100,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3570,
+      "is_new": true
+    },
+    {
+      "id": "shine",
+      "name": "Shine",
+      "elements": [
+        "ice",
+        "light"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "shine.png",
+      "blurb": "A sparkly ice dragon who catches the sunlight.",
+      "recipeElements": [
+        "ice",
+        "light"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1020,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 714,
+      "old_id": "glint"
+    },
+    {
+      "id": "mirror",
+      "name": "Mirror",
+      "elements": [
+        "ice",
+        "light"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "mirror.png",
+      "blurb": "A smooth icy dragon with a shiny, see-you belly.",
+      "recipeElements": [
+        "ice",
+        "light"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4920,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3444,
+      "is_new": true
+    },
+    {
+      "id": "silver",
+      "name": "Silver",
+      "elements": [
+        "ice",
+        "metal"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "silver.png",
+      "blurb": "A silver dragon with frosted plates.",
+      "recipeElements": [
+        "ice",
+        "metal"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1080,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 756,
+      "old_id": "rime"
+    },
+    {
+      "id": "skate",
+      "name": "Skate",
+      "elements": [
+        "ice",
+        "metal"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "skate.png",
+      "blurb": "An ice-skate dragon who glides in happy loops.",
+      "recipeElements": [
+        "ice",
+        "metal"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 5040,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3528,
+      "is_new": true
+    },
+    {
+      "id": "glitter",
+      "name": "Glitter",
+      "elements": [
+        "ice",
+        "star"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "glitter.png",
+      "blurb": "A sparkly ice dragon dusted with tiny stars.",
+      "recipeElements": [
+        "ice",
+        "star"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1160,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 812,
+      "is_new": true
+    },
+    {
+      "id": "flake",
+      "name": "Flake",
+      "elements": [
+        "ice",
+        "star"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "flake.png",
+      "blurb": "A pale snowflake dragon with icy, starry horns.",
+      "recipeElements": [
+        "ice",
+        "star"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 4650,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3255,
+      "old_id": "shiver"
+    },
+    {
+      "id": "coin",
+      "name": "Coin",
+      "elements": [
+        "light",
+        "metal"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "coin.png",
+      "blurb": "A round shiny-coin dragon who jingles when he hops.",
+      "recipeElements": [
+        "light",
+        "metal"
+      ],
+      "recipeChance": 0.8,
+      "incubateSeconds": 1200,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 840,
+      "is_new": true
+    },
+    {
+      "id": "gold",
+      "name": "Gold",
+      "elements": [
+        "light",
+        "metal"
+      ],
+      "rarity": "legendary",
+      "kind": "combo",
+      "sprite": "gold.png",
+      "blurb": "A gold-plated dragon who shines from head to tail.",
+      "recipeElements": [
+        "light",
+        "metal"
+      ],
+      "recipeChance": 0.2,
+      "incubateSeconds": 17130,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 11991,
+      "old_id": "gilt"
+    },
+    {
+      "id": "nightlight",
+      "name": "Nightlight",
+      "elements": [
+        "light",
+        "star"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "nightlight.png",
+      "blurb": "A cozy glow dragon who keeps the dark feeling friendly.",
+      "recipeElements": [
+        "light",
+        "star"
+      ],
+      "recipeChance": 0.7,
+      "incubateSeconds": 1320,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 924,
+      "is_new": true
+    },
+    {
+      "id": "wish",
+      "name": "Wish",
+      "elements": [
+        "light",
+        "star"
+      ],
+      "rarity": "epic",
+      "kind": "combo",
+      "sprite": "wish.png",
+      "blurb": "A little star dragon you would wish on at bedtime.",
+      "recipeElements": [
+        "light",
+        "star"
+      ],
+      "recipeChance": 0.3,
+      "incubateSeconds": 5850,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 4095,
+      "old_id": "dapple"
+    },
+    {
+      "id": "spaceship",
+      "name": "Spaceship",
+      "elements": [
+        "metal",
+        "star"
+      ],
+      "rarity": "rare",
+      "kind": "combo",
+      "sprite": "spaceship.png",
+      "blurb": "A little metal ship dragon ready for a star trip.",
+      "recipeElements": [
+        "metal",
+        "star"
+      ],
+      "recipeChance": 0.8,
+      "incubateSeconds": 1440,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 1008,
+      "is_new": true
+    },
+    {
+      "id": "rocket",
+      "name": "Rocket",
+      "elements": [
+        "metal",
+        "star"
+      ],
+      "rarity": "legendary",
+      "kind": "combo",
+      "sprite": "rocket.png",
+      "blurb": "A zooming metal dragon with a starry trail.",
+      "recipeElements": [
+        "metal",
+        "star"
+      ],
+      "recipeChance": 0.2,
+      "incubateSeconds": 19830,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 13881,
+      "old_id": "rust"
+    },
+    {
+      "id": "flame",
+      "name": "Flame",
+      "elements": [
+        "fire"
+      ],
+      "rarity": "common",
+      "kind": "reward",
+      "sprite": "flame.png",
+      "blurb": "A tiny fire visitor who shows up the first day you visit.",
+      "rewardTrack": "login",
+      "rewardThreshold": 1,
+      "rewardHint": "Login streak 1",
+      "incubateSeconds": 120,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 84,
+      "old_id": "pip"
+    },
+    {
+      "id": "drop",
+      "name": "Drop",
+      "elements": [
+        "water"
+      ],
+      "rarity": "common",
+      "kind": "reward",
+      "sprite": "drop.png",
+      "blurb": "A two-day streak visitor with a watery smile.",
+      "rewardTrack": "login",
+      "rewardThreshold": 2,
+      "rewardHint": "Login streak 2",
+      "incubateSeconds": 180,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 126,
+      "old_id": "nib"
+    },
+    {
+      "id": "acorn",
+      "name": "Acorn",
+      "elements": [
+        "earth"
+      ],
+      "rarity": "common",
+      "kind": "reward",
+      "sprite": "acorn.png",
+      "blurb": "A three-day streak visitor who wears a little acorn cap.",
+      "rewardTrack": "login",
+      "rewardThreshold": 3,
+      "rewardHint": "Login streak 3",
+      "incubateSeconds": 150,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 105,
+      "old_id": "kip"
+    },
+    {
+      "id": "fluff",
+      "name": "Fluff",
+      "elements": [
+        "air"
+      ],
+      "rarity": "rare",
+      "kind": "reward",
+      "sprite": "fluff.png",
+      "blurb": "A soft, puffy dragon who drifts in after five days in a row.",
+      "rewardTrack": "login",
+      "rewardThreshold": 5,
+      "rewardHint": "Login streak 5",
+      "incubateSeconds": 900,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 630,
+      "old_id": "mallow"
+    },
+    {
+      "id": "sunny",
+      "name": "Sunny",
+      "elements": [
+        "lightning"
+      ],
+      "rarity": "rare",
+      "kind": "reward",
+      "sprite": "sunny.png",
+      "blurb": "A bright yellow week-long streak dragon.",
+      "rewardTrack": "login",
+      "rewardThreshold": 7,
+      "rewardHint": "Login streak 7",
+      "incubateSeconds": 1020,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 714
+    },
+    {
+      "id": "daisy",
+      "name": "Daisy",
+      "elements": [
+        "plant"
+      ],
+      "rarity": "rare",
+      "kind": "reward",
+      "sprite": "daisy.png",
+      "blurb": "A flower-crowned dragon who arrives on a ten-day streak.",
+      "rewardTrack": "login",
+      "rewardThreshold": 10,
+      "rewardHint": "Login streak 10",
+      "incubateSeconds": 1080,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 756,
+      "old_id": "luma"
+    },
+    {
+      "id": "cozy",
+      "name": "Cozy",
+      "elements": [
+        "ice"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "cozy.png",
+      "blurb": "A two-week streak snuggler in a warm scarf.",
+      "rewardTrack": "login",
+      "rewardThreshold": 14,
+      "rewardHint": "Login streak 14",
+      "incubateSeconds": 4200,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 2940
+    },
+    {
+      "id": "buddy",
+      "name": "Buddy",
+      "elements": [
+        "light"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "buddy.png",
+      "blurb": "A three-week streak friend who lights up when he sees you.",
+      "rewardTrack": "login",
+      "rewardThreshold": 21,
+      "rewardHint": "Login streak 21",
+      "incubateSeconds": 4500,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3150
+    },
+    {
+      "id": "ace",
+      "name": "Ace",
+      "elements": [
+        "fire"
+      ],
+      "rarity": "rare",
+      "kind": "reward",
+      "sprite": "ace.png",
+      "blurb": "Joins when you reach level 2.",
+      "rewardTrack": "level",
+      "rewardThreshold": 2,
+      "rewardHint": "Reach level 2",
+      "incubateSeconds": 960,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 672
+    },
+    {
+      "id": "glow",
+      "name": "Glow",
+      "elements": [
+        "light"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "glow.png",
+      "blurb": "A glowing dragon who joins when you reach level 5.",
+      "rewardTrack": "level",
+      "rewardThreshold": 5,
+      "rewardHint": "Reach level 5",
+      "incubateSeconds": 4800,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3360,
+      "old_id": "nova"
+    },
+    {
+      "id": "hero",
+      "name": "Hero",
+      "elements": [
+        "metal"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "hero.png",
+      "blurb": "Joins when you reach level 8.",
+      "rewardTrack": "level",
+      "rewardThreshold": 8,
+      "rewardHint": "Reach level 8",
+      "incubateSeconds": 5100,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3570
+    },
+    {
+      "id": "crown",
+      "name": "Crown",
+      "elements": [
+        "star"
+      ],
+      "rarity": "legendary",
+      "kind": "reward",
+      "sprite": "crown.png",
+      "blurb": "A crowned star dragon who joins at level 12.",
+      "rewardTrack": "level",
+      "rewardThreshold": 12,
+      "rewardHint": "Reach level 12",
+      "incubateSeconds": 16200,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 11340
+    },
+    {
+      "id": "master",
+      "name": "Master",
+      "elements": [
+        "lightning"
+      ],
+      "rarity": "legendary",
+      "kind": "reward",
+      "sprite": "master.png",
+      "blurb": "Joins when you reach level 16.",
+      "rewardTrack": "level",
+      "rewardThreshold": 16,
+      "rewardHint": "Reach level 16",
+      "incubateSeconds": 16800,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 11760,
+      "old_id": "apex"
+    },
+    {
+      "id": "ocean",
+      "name": "Ocean",
+      "elements": [
+        "water"
+      ],
+      "rarity": "legendary",
+      "kind": "reward",
+      "sprite": "ocean.png",
+      "blurb": "A deep-blue dragon who joins at level 20.",
+      "rewardTrack": "level",
+      "rewardThreshold": 20,
+      "rewardHint": "Reach level 20",
+      "incubateSeconds": 17400,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 12180,
+      "old_id": "myth"
+    },
+    {
+      "id": "rose",
+      "name": "Rose",
+      "elements": [
+        "plant"
+      ],
+      "rarity": "legendary",
+      "kind": "reward",
+      "sprite": "rose.png",
+      "blurb": "A flower-crowned garden dragon who joins at level 25.",
+      "rewardTrack": "level",
+      "rewardThreshold": 25,
+      "rewardHint": "Reach level 25",
+      "incubateSeconds": 18000,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 12600,
+      "old_id": "glory"
+    },
+    {
+      "id": "legend",
+      "name": "Legend",
+      "elements": [
+        "earth"
+      ],
+      "rarity": "legendary",
+      "kind": "reward",
+      "sprite": "legend.png",
+      "blurb": "Joins when you reach level 30.",
+      "rewardTrack": "level",
+      "rewardThreshold": 30,
+      "rewardHint": "Reach level 30",
+      "incubateSeconds": 18600,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 13020
+    },
+    {
+      "id": "note",
+      "name": "Note",
+      "elements": [
+        "air"
+      ],
+      "rarity": "common",
+      "kind": "reward",
+      "sprite": "note.png",
+      "blurb": "A notepad dragon, a gift for knowing 5 dragons.",
+      "rewardTrack": "collection",
+      "rewardThreshold": 5,
+      "rewardHint": "Collect 5 dragons",
+      "incubateSeconds": 210,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 147,
+      "old_id": "tally"
+    },
+    {
+      "id": "album",
+      "name": "Album",
+      "elements": [
+        "plant"
+      ],
+      "rarity": "rare",
+      "kind": "reward",
+      "sprite": "album.png",
+      "blurb": "A gift for knowing 10 dragons.",
+      "rewardTrack": "collection",
+      "rewardThreshold": 10,
+      "rewardHint": "Collect 10 dragons",
+      "incubateSeconds": 1080,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 756
+    },
+    {
+      "id": "keeper",
+      "name": "Keeper",
+      "elements": [
+        "earth"
+      ],
+      "rarity": "rare",
+      "kind": "reward",
+      "sprite": "keeper.png",
+      "blurb": "A gift for knowing 15 dragons.",
+      "rewardTrack": "collection",
+      "rewardThreshold": 15,
+      "rewardHint": "Collect 15 dragons",
+      "incubateSeconds": 1200,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 840
+    },
+    {
+      "id": "detective",
+      "name": "Detective",
+      "elements": [
+        "light"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "detective.png",
+      "blurb": "A curious dragon with a little magnifying glass, for knowing 25 dragons.",
+      "rewardTrack": "collection",
+      "rewardThreshold": 25,
+      "rewardHint": "Collect 25 dragons",
+      "incubateSeconds": 5100,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3570,
+      "old_id": "curator"
+    },
+    {
+      "id": "treasure",
+      "name": "Treasure",
+      "elements": [
+        "metal"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "treasure.png",
+      "blurb": "A coin-pile dragon, a gift for knowing 35 dragons.",
+      "rewardTrack": "collection",
+      "rewardThreshold": 35,
+      "rewardHint": "Collect 35 dragons",
+      "incubateSeconds": 5400,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3780,
+      "old_id": "hoard"
+    },
+    {
+      "id": "map",
+      "name": "Map",
+      "elements": [
+        "water"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "map.png",
+      "blurb": "A traveler dragon with a compass and a rolled-up map, for knowing 45 dragons.",
+      "rewardTrack": "collection",
+      "rewardThreshold": 45,
+      "rewardHint": "Collect 45 dragons",
+      "incubateSeconds": 5700,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3990,
+      "old_id": "atlas"
+    },
+    {
+      "id": "teacher",
+      "name": "Teacher",
+      "elements": [
+        "star"
+      ],
+      "rarity": "legendary",
+      "kind": "reward",
+      "sprite": "teacher.png",
+      "blurb": "A kindly glasses-and-telescope dragon, a gift for knowing 55 dragons.",
+      "rewardTrack": "collection",
+      "rewardThreshold": 55,
+      "rewardHint": "Collect 55 dragons",
+      "incubateSeconds": 18600,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 13020,
+      "old_id": "sage"
+    },
+    {
+      "id": "prize",
+      "name": "Prize",
+      "elements": [
+        "lightning"
+      ],
+      "rarity": "legendary",
+      "kind": "reward",
+      "sprite": "prize.png",
+      "blurb": "A bright prize dragon, a gift for knowing 70 dragons.",
+      "rewardTrack": "collection",
+      "rewardThreshold": 70,
+      "rewardHint": "Collect 70 dragons",
+      "incubateSeconds": 19200,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 13440,
+      "old_id": "muse"
+    },
+    {
+      "id": "match",
+      "name": "Match",
+      "elements": [
+        "fire"
+      ],
+      "rarity": "common",
+      "kind": "reward",
+      "sprite": "match.png",
+      "blurb": "Hatches into the park after your first breed.",
+      "rewardTrack": "breeding",
+      "rewardThreshold": 1,
+      "rewardHint": "Breed 1 time",
+      "incubateSeconds": 180,
+      "incomePerMinute": 12,
+      "baseHP": 22,
+      "baseAttack": 6,
+      "breedSeconds": 126
+    },
+    {
+      "id": "nest",
+      "name": "Nest",
+      "elements": [
+        "plant"
+      ],
+      "rarity": "rare",
+      "kind": "reward",
+      "sprite": "nest.png",
+      "blurb": "A gift for breeding 5 times.",
+      "rewardTrack": "breeding",
+      "rewardThreshold": 5,
+      "rewardHint": "Breed 5 times",
+      "incubateSeconds": 1020,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 714
+    },
+    {
+      "id": "hatch",
+      "name": "Hatch",
+      "elements": [
+        "earth"
+      ],
+      "rarity": "rare",
+      "kind": "reward",
+      "sprite": "hatch.png",
+      "blurb": "A gift for breeding 10 times.",
+      "rewardTrack": "breeding",
+      "rewardThreshold": 10,
+      "rewardHint": "Breed 10 times",
+      "incubateSeconds": 1140,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 798,
+      "old_id": "clutch"
+    },
+    {
+      "id": "pack",
+      "name": "Pack",
+      "elements": [
+        "water"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "pack.png",
+      "blurb": "A gift for breeding 25 times.",
+      "rewardTrack": "breeding",
+      "rewardThreshold": 25,
+      "rewardHint": "Breed 25 times",
+      "incubateSeconds": 4800,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3360,
+      "old_id": "brood"
+    },
+    {
+      "id": "family",
+      "name": "Family",
+      "elements": [
+        "light"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "family.png",
+      "blurb": "A gift for breeding 50 times.",
+      "rewardTrack": "breeding",
+      "rewardThreshold": 50,
+      "rewardHint": "Breed 50 times",
+      "incubateSeconds": 5400,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3780,
+      "old_id": "lineage"
+    },
+    {
+      "id": "kingdom",
+      "name": "Kingdom",
+      "elements": [
+        "star"
+      ],
+      "rarity": "legendary",
+      "kind": "reward",
+      "sprite": "kingdom.png",
+      "blurb": "A crowned star dragon, a gift for breeding 100 times.",
+      "rewardTrack": "breeding",
+      "rewardThreshold": 100,
+      "rewardHint": "Breed 100 times",
+      "incubateSeconds": 19800,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 13860,
+      "old_id": "dynasty"
+    },
+    {
+      "id": "fighter",
+      "name": "Fighter",
+      "elements": [
+        "fire"
+      ],
+      "rarity": "rare",
+      "kind": "reward",
+      "sprite": "fighter.png",
+      "blurb": "Earned in battles, coming soon.",
+      "rewardTrack": "battle",
+      "rewardThreshold": 1,
+      "rewardHint": "Earned in battles, coming soon",
+      "incubateSeconds": 1200,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 840,
+      "old_id": "bout"
+    },
+    {
+      "id": "armor",
+      "name": "Armor",
+      "elements": [
+        "metal"
+      ],
+      "rarity": "rare",
+      "kind": "reward",
+      "sprite": "armor.png",
+      "blurb": "Earned in battles, coming soon.",
+      "rewardTrack": "battle",
+      "rewardThreshold": 3,
+      "rewardHint": "Earned in battles, coming soon",
+      "incubateSeconds": 1320,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 924,
+      "old_id": "pike"
+    },
+    {
+      "id": "shield",
+      "name": "Shield",
+      "elements": [
+        "earth"
+      ],
+      "rarity": "rare",
+      "kind": "reward",
+      "sprite": "shield.png",
+      "blurb": "Earned in battles, coming soon.",
+      "rewardTrack": "battle",
+      "rewardThreshold": 5,
+      "rewardHint": "Earned in battles, coming soon",
+      "incubateSeconds": 1260,
+      "incomePerMinute": 18,
+      "baseHP": 30,
+      "baseAttack": 9,
+      "breedSeconds": 882,
+      "old_id": "aegis"
+    },
+    {
+      "id": "lucky",
+      "name": "Lucky",
+      "elements": [
+        "star"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "lucky.png",
+      "blurb": "Earned in battles, coming soon.",
+      "rewardTrack": "battle",
+      "rewardThreshold": 8,
+      "rewardHint": "Earned in battles, coming soon",
+      "incubateSeconds": 5100,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3570,
+      "old_id": "fang"
+    },
+    {
+      "id": "rally",
+      "name": "Rally",
+      "elements": [
+        "lightning"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "rally.png",
+      "blurb": "Earned in battles, coming soon.",
+      "rewardTrack": "battle",
+      "rewardThreshold": 12,
+      "rewardHint": "Earned in battles, coming soon",
+      "incubateSeconds": 4980,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3486
+    },
+    {
+      "id": "brave",
+      "name": "Brave",
+      "elements": [
+        "light"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "brave.png",
+      "blurb": "Earned in battles, coming soon.",
+      "rewardTrack": "battle",
+      "rewardThreshold": 15,
+      "rewardHint": "Earned in battles, coming soon",
+      "incubateSeconds": 5220,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3654,
+      "old_id": "valor"
+    },
+    {
+      "id": "flag",
+      "name": "Flag",
+      "elements": [
+        "air"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "flag.png",
+      "blurb": "Earned in battles, coming soon.",
+      "rewardTrack": "battle",
+      "rewardThreshold": 20,
+      "rewardHint": "Earned in battles, coming soon",
+      "incubateSeconds": 5160,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3612,
+      "old_id": "pennant"
+    },
+    {
+      "id": "arena",
+      "name": "Arena",
+      "elements": [
+        "fire"
+      ],
+      "rarity": "legendary",
+      "kind": "reward",
+      "sprite": "arena.png",
+      "blurb": "Earned in battles, coming soon.",
+      "rewardTrack": "battle",
+      "rewardThreshold": 25,
+      "rewardHint": "Earned in battles, coming soon",
+      "incubateSeconds": 17400,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 12180
+    },
+    {
+      "id": "winner",
+      "name": "Winner",
+      "elements": [
+        "water"
+      ],
+      "rarity": "legendary",
+      "kind": "reward",
+      "sprite": "winner.png",
+      "blurb": "Earned in battles, coming soon.",
+      "rewardTrack": "battle",
+      "rewardThreshold": 30,
+      "rewardHint": "Earned in battles, coming soon",
+      "incubateSeconds": 18000,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 12600,
+      "old_id": "victor"
+    },
+    {
+      "id": "clash",
+      "name": "Clash",
+      "elements": [
+        "metal"
+      ],
+      "rarity": "legendary",
+      "kind": "reward",
+      "sprite": "clash.png",
+      "blurb": "Earned in battles, coming soon.",
+      "rewardTrack": "battle",
+      "rewardThreshold": 40,
+      "rewardHint": "Earned in battles, coming soon",
+      "incubateSeconds": 18600,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 13020
+    },
+    {
+      "id": "trophy",
+      "name": "Trophy",
+      "elements": [
+        "light"
+      ],
+      "rarity": "legendary",
+      "kind": "reward",
+      "sprite": "trophy.png",
+      "blurb": "Earned in battles, coming soon.",
+      "rewardTrack": "battle",
+      "rewardThreshold": 50,
+      "rewardHint": "Earned in battles, coming soon",
+      "incubateSeconds": 19200,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 13440,
+      "old_id": "triumph"
+    },
+    {
+      "id": "champion",
+      "name": "Champion",
+      "elements": [
+        "star"
+      ],
+      "rarity": "legendary",
+      "kind": "reward",
+      "sprite": "champion.png",
+      "blurb": "Earned in battles, coming soon.",
+      "rewardTrack": "battle",
+      "rewardThreshold": 60,
+      "rewardHint": "Earned in battles, coming soon",
+      "incubateSeconds": 19800,
+      "incomePerMinute": 40,
+      "baseHP": 54,
+      "baseAttack": 18,
+      "breedSeconds": 13860,
+      "old_id": "oath"
+    },
+    {
+      "id": "flex",
+      "name": "Flex",
+      "elements": [
+        "fire"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "flex.png",
+      "blurb": "A coach dragon with a headband and a tiny dumbbell.",
+      "rewardTrack": "habit",
+      "rewardThreshold": 1,
+      "rewardHint": "Earned by habits, coming soon",
+      "incubateSeconds": 6540,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 4578,
+      "habit": "workouts"
+    },
+    {
+      "id": "piggy",
+      "name": "Piggy",
+      "elements": [
+        "light"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "piggy.png",
+      "blurb": "A piggy-bank dragon who guards a single gold coin.",
+      "rewardTrack": "habit",
+      "rewardThreshold": 1,
+      "rewardHint": "Earned by habits, coming soon",
+      "incubateSeconds": 5340,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3738,
+      "habit": "no-spend days"
+    },
+    {
+      "id": "sprout",
+      "name": "Sprout",
+      "elements": [
+        "plant"
+      ],
+      "rarity": "epic",
+      "kind": "reward",
+      "sprite": "sprout.png",
+      "blurb": "A snack dragon who shares a shiny red apple.",
+      "rewardTrack": "habit",
+      "rewardThreshold": 1,
+      "rewardHint": "Earned by habits, coming soon",
+      "incubateSeconds": 4710,
+      "incomePerMinute": 28,
+      "baseHP": 40,
+      "baseAttack": 13,
+      "breedSeconds": 3297,
+      "habit": "healthy meals"
+    }
+  ]
+}

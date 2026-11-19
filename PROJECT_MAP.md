@@ -26,18 +26,21 @@ Swift 5, SpriteKit, iOS 16+, SwiftUI wrapper (`SpriteView`). XcodeGen (`project.
 - `App/GameScene+Actions.swift` — shop buys, placement, hatch, collect, selection info
 - `App/Data/Models.swift` — catalog structs + Codable save structs
 - `App/Data/Catalog.swift` — load `Data/*.json`, textures from `Art/`, prices/timers
-- `App/Game/GameState.swift` — park rules: eggs, habitats, hatching
-- `App/Economy/Wallet.swift` — gold, per-dragon gold/hr, habitat storage cap, collect
+- `App/Game/GameState.swift` — park rules: eggs, habitats, hatching, move, discovered species
+- `App/Game/GameTimers.swift` — generic `TimerRef` (egg now, breeding later) + gem speed-up cost/skip
+- `App/Economy/Wallet.swift` — gold, gems, per-dragon gold/hr, habitat cap (= gold/hr x `storageHours` 4), collect
 - `App/Save/SaveStore.swift` — JSON save in Documents, new game
 - `App/Island/IslandGrid.swift` — 96pt grid, 2x2 footprints, grass-oval bounds
 - `App/Island/IslandBuilder.swift` — island + clouds backdrop, building nodes
 - `App/Island/CameraController.swift` — pan/zoom clamp
-- `App/Island/PlacementController.swift` — habitat ghost drag/snap/confirm
-- `App/Island/HabitatNode.swift` — habitat sprite, dragons, stored-coin badge
-- `App/Island/NurseryNode.swift` — nursery (hatchery art) + egg countdowns
-- `App/Dragons/DragonNode.swift` — park dragon (idle bob)
-- `App/Shop/ShopOverlay.swift` — Eggs / Habitats tabs
-- `App/UI/HUD.swift` — gold, Shop, info bar, toasts, placement buttons
+- `App/Island/PlacementController.swift` — ghost + footprint marker drag/snap (new habitat or move)
+- `App/Island/GameScene+Placement.swift` — new-habitat placement, long-press move mode, confirm/cancel
+- `App/Island/HabitatNode.swift` — habitat sprite, wandering dragons, coin badge (>= 50% of cap)
+- `App/Island/NurseryNode.swift` — nursery (hatchery art) + shape-drawn nest holding `hatchery.slots` eggs
+- `App/Dragons/DragonNode.swift` — park dragon (bob, random-walk wander, faces direction; art faces left)
+- `App/Shop/ShopOverlay.swift`, `App/Shop/ShopItems.swift` — section menu (Eggs / Habitats / Buildings) + item grids
+- `App/Book/DragonBook.swift` — Dragon Book: paged grid, silhouettes for undiscovered
+- `App/UI/HUD.swift` — gold, gems, Shop, book button, info bar, speed-up button, toasts, placement buttons
 - `App/UI/ModalPanel.swift`, `App/UI/Prompts.swift` — overlays, habitat picker
 - `App/UI/ButtonNode.swift`, `App/UI/Effects.swift`, `App/UI/Format.swift` — buttons, actions, formatting
 - `App/Resources/Assets.xcassets` — AppIcon
@@ -50,7 +53,6 @@ Add these when the milestone starts. One feature per file; keep files under ~300
 
 - `App/Breeding/BreedingController.swift` — element-pair recipes, costs, results
 - `App/Breeding/HatcheryController.swift` — move nursery timers here if breeding needs it
-- `App/Book/DragonBook.swift` — discovered species collection
 
 ## Data models (from JSON)
 
@@ -79,7 +81,7 @@ CI: push to `main` or run **Build unsigned IPA**; download the artifact. Sideloa
 ## Milestones
 
 - [x] 1. Skeleton + island scene — `App/DragonTalesApp.swift`, `App/GameScene.swift` (extend), later `App/Island/IslandScene.swift`
-- [ ] 2. Data loading — `App/Data/Catalog.swift`, `App/Data/Models.swift`, `Data/*.json`
+- [x] 2. Loop polish — wander, gems + speed-up, nursery nest, 50% coin badge, 4h cap, move mode, shop menu, Dragon Book
 - [ ] 3. Habitats placement — `App/Island/IslandScene.swift`, `App/Island/HabitatNode.swift`
 - [ ] 4. Breeding — `App/Breeding/BreedingController.swift`
 - [ ] 5. Incubation / hatching timers — `App/Breeding/HatcheryController.swift`
@@ -94,3 +96,4 @@ CI: push to `main` or run **Build unsigned IPA**; download the artifact. Sideloa
 
 - 2026-11-18: Repo created (public; now Coleslaw510/dragon-tales-main). Shipped art + JSON imported from the Nov 12 IPA. SpriteKit stub + unsigned IPA workflow added. Milestone 1 compiling stub is in place; island scene not built yet.
 - 2026-11-18: Milestone 1 baseline loop done (d5542de): island pan/zoom/select, gold HUD (start = habitat 380 + egg 220), shop tabs, habitat placement, nursery timers + hatch, habitat picker, income/collect, actions, Codable save. IPA build passed: https://github.com/Coleslaw510/dragon-tales-main/actions/runs/44445549337
+- 2026-11-18: Milestone 2 loop polish done (d5a945c, 586c0ea): dragon wander, gems + generic timer speed-up, multi-egg nest, coin badge at 50%, cap = gold/hr x 4h, long-press move mode, shop section menu, Dragon Book. IPA build passed: https://github.com/Coleslaw510/dragon-tales-main/actions/runs/44448635208

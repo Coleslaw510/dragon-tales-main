@@ -1,7 +1,7 @@
 import SpriteKit
 
-/// Shop section contents and the grid cell. Buildings other than the (single, already
-/// placed) Nursery are listed from economy.json but not buyable until their milestone.
+/// Shop section contents and the grid cell. Buildings: the (single, already placed) Nursery,
+/// the Breeding Cave (buy + place), and others listed from economy.json until their milestone.
 extension ShopOverlay {
     func eggItems() -> [Item] {
         catalog.baseSpecies.map { s -> Item in
@@ -32,11 +32,9 @@ extension ShopOverlay {
         list.append(Item(title: nurseryName, subtitle: "Holds \(catalog.nurserySlots) eggs", price: 0,
                          texture: catalog.nurseryTexture, color: blue, note: "Owned",
                          buy: { [weak self] in self?.onUnavailable?("You already have the Nursery. Long-press it to move it.") }))
-        if let grove = catalog.economy.buildings?["grove"] {
-            list.append(Item(title: grove.name, subtitle: "Breed dragons", price: 0,
-                             texture: catalog.buildingTexture(grove.sprite), color: blue, note: "Coming soon",
-                             buy: soon(grove.name)))
-        }
+        list.append(Item(title: CaveRules.name, subtitle: "Breed dragons", price: CaveRules.cost,
+                         texture: catalog.caveTexture, color: blue, note: nil,
+                         buy: { [weak self] in self?.onBuyCave?() }))
         if let farm = catalog.economy.farms, let sprite = farm.sprite {
             let name = farm.name ?? "Farm"
             list.append(Item(title: name, subtitle: "Grows food", price: farm.cost ?? 0,

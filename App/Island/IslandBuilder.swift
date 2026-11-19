@@ -39,6 +39,8 @@ extension GameScene {
         habitatNodes.removeAll()
         nurseryNode?.removeFromParent()
         nurseryNode = nil
+        caveNodes.values.forEach { $0.removeFromParent() }
+        caveNodes.removeAll()
         for b in state.data.buildings { addBuildingNode(b) }
     }
 
@@ -59,6 +61,13 @@ extension GameScene {
             world.addChild(h)
             habitatNodes[b.id] = h
             refreshHabitat(b.id)
+        case .cave:
+            let c = CaveNode(building: b)
+            c.position = pos
+            c.zPosition = depth(pos)
+            world.addChild(c)
+            caveNodes[b.id] = c
+            c.sync(breed: state.breed(inCave: b.id), now: Date(), catalog: catalog)
         }
     }
 

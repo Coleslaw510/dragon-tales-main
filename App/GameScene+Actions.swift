@@ -28,6 +28,7 @@ extension GameScene {
         let shop = ShopOverlay(sceneSize: size, catalog: catalog, gold: state.gold, section: section)
         shop.onBuyEgg = { [weak self] s in self?.buyEgg(s) }
         shop.onBuyHabitat = { [weak self] e in self?.buyHabitat(e) }
+        shop.onBuyCave = { [weak self] in self?.buyCave() }
         shop.onUnavailable = { [weak self] text in self?.hud.toast(text) }
         presentModal(shop)
     }
@@ -46,6 +47,8 @@ extension GameScene {
             return state.remaining(.egg(id), now: now) > 0 ? .egg(id) : nil
         case .nursery?:
             return state.nextIncubatingEgg(now: now)
+        case .cave(let id)?:
+            return state.remaining(.breeding(id), now: now) > 0 ? .breeding(id) : nil
         default:
             return nil
         }
@@ -60,7 +63,11 @@ extension GameScene {
             hud.bumpGems()
             hud.toast("Sped up for \(cost) gems")
             tick()
-            if let n = nurseryNode { Effects.bounce(n) }
+            if case .breeding(let id) = t, let c = caveNodes[id] {
+                Effects.bounce(c)
+            } else if let n = nurseryNode {
+                Effects.bounce(n)
+            }
             save()
         case .notEnoughGems:
             hud.toast("Not enough gems (need \(cost), have \(state.gems))")
@@ -211,6 +218,8 @@ extension GameScene {
             guard let e = state.egg(id), let sp = catalog.species(e.speciesId) else { return nil }
             let r = e.readyAt.timeIntervalSinceNow
             return r <= 0 ? "\(sp.name) egg · ready!\nTap to hatch" : "\(sp.name) egg\nHatches in \(Format.countdown(r))"
+        case .cave(let id):
+            return caveInfo(id)
         }
     }
 }

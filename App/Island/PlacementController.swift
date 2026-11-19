@@ -1,11 +1,12 @@
 import SpriteKit
 
-/// Placement mode shared by new habitats and moving placed buildings: a ghost that snaps
+/// Placement mode shared by new habitats, new caves, and moving placed buildings: a ghost that snaps
 /// to the grid over a footprint marker, green when the 2x2 footprint is free and on grass,
 /// red otherwise.
 final class PlacementController {
     enum Purpose: Equatable {
         case newHabitat(String)
+        case newCave
         case move(Int)
     }
 

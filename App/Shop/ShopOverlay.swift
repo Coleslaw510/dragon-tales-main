@@ -21,7 +21,7 @@ final class ShopOverlay: ModalPanel {
             switch self {
             case .eggs: return "Hatch new dragons"
             case .habitats: return "Homes that earn gold"
-            case .buildings: return "Nursery, grove & decor"
+            case .buildings: return "Nursery, cave & decor"
             }
         }
     }
@@ -39,6 +39,7 @@ final class ShopOverlay: ModalPanel {
 
     var onBuyEgg: ((DragonSpecies) -> Void)?
     var onBuyHabitat: ((String) -> Void)?
+    var onBuyCave: (() -> Void)?
     var onUnavailable: ((String) -> Void)?
 
     let catalog: Catalog

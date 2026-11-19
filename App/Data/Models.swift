@@ -92,6 +92,12 @@ struct Economy: Codable {
         let name: String
         let sprite: String
     }
+    struct Breeding: Codable {
+        let costCoins: Int?
+    }
+    struct Rarity: Codable {
+        let color: String?
+    }
 
     let starting: Starting?
     let elements: [ElementInfo]
@@ -102,6 +108,8 @@ struct Economy: Codable {
     let farms: Farms?
     let island: Island
     let buildings: [String: BuildingInfo]?
+    let breeding: Breeding?
+    let rarities: [String: Rarity]?
 }
 
 // MARK: - Save (persisted park state)
@@ -109,6 +117,7 @@ struct Economy: Codable {
 enum BuildingKind: String, Codable {
     case nursery
     case habitat
+    case cave
 }
 
 struct BuildingSave: Codable {
@@ -123,6 +132,18 @@ struct BuildingSave: Codable {
 
 struct EggSave: Codable {
     var id: Int
+    var speciesId: String
+    var startedAt: Date
+    var readyAt: Date
+}
+
+/// A breed in a Breeding Cave. The offspring is rolled at start; its egg goes to the
+/// nursery once `readyAt` passes and the player collects it.
+struct BreedSave: Codable {
+    var id: Int
+    var caveId: Int
+    var parentA: Int
+    var parentB: Int
     var speciesId: String
     var startedAt: Date
     var readyAt: Date
@@ -146,5 +167,7 @@ struct SaveData: Codable {
     var buildings: [BuildingSave]
     var eggs: [EggSave]
     var dragons: [DragonSave]
+    /// Breeding Cave timers. Optional for old saves.
+    var breeding: [BreedSave]?
     var savedAt: Date
 }

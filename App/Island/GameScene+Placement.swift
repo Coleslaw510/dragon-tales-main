@@ -19,9 +19,22 @@ extension GameScene {
         beginPlacement(p, hint: "Drag the \(catalog.elementName(element)) Habitat, then Confirm")
     }
 
+    // MARK: New Breeding Cave
+
+    func startCavePlacement() {
+        guard let p = PlacementController(purpose: .newCave, texture: catalog.caveTexture,
+                                          size: CGSize(width: CaveNode.side, height: CaveNode.side),
+                                          grid: grid, occupied: state.occupiedCells(grid: grid),
+                                          near: cam.position, world: world) else {
+            hud.toast("No free space on the island")
+            return
+        }
+        beginPlacement(p, hint: "Drag the \(CaveRules.name), then Confirm")
+    }
+
     // MARK: Move mode
 
-    /// Placed building (habitat or nursery) under a world point.
+    /// Placed building (habitat, nursery or cave) under a world point.
     func buildingNode(at p: CGPoint) -> (id: Int, node: SKSpriteNode)? {
         var best: (id: Int, node: SKSpriteNode)?
         for n in world.nodes(at: p) {
@@ -31,6 +44,8 @@ extension GameScene {
                     if best == nil || h.zPosition > best!.node.zPosition { best = (h.buildingId, h) }
                 } else if let ns = node as? NurseryNode {
                     if best == nil || ns.zPosition > best!.node.zPosition { best = (ns.buildingId, ns) }
+                } else if let c = node as? CaveNode {
+                    if best == nil || c.zPosition > best!.node.zPosition { best = (c.buildingId, c) }
                 }
                 current = node.parent
             }
@@ -51,6 +66,9 @@ extension GameScene {
             texture = catalog.nurseryTexture
             size = CGSize(width: NurseryNode.side, height: NurseryNode.side)
             anchor = NurseryNode.anchor
+        case .cave:
+            texture = catalog.caveTexture
+            size = CGSize(width: CaveNode.side, height: CaveNode.side)
         }
         guard let p = PlacementController(purpose: .move(id), texture: texture, size: size, anchor: anchor,
                                           grid: grid, occupied: state.occupiedCells(grid: grid, excluding: id),
@@ -66,7 +84,7 @@ extension GameScene {
     func node(forBuilding id: Int) -> SKNode? {
         if let h = habitatNodes[id] { return h }
         if let n = nurseryNode, n.buildingId == id { return n }
-        return nil
+        return caveNodes[id]
     }
 
     // MARK: Confirm / cancel
@@ -95,6 +113,17 @@ extension GameScene {
             hud.setGold(state.gold)
             hud.toast("\(catalog.elementName(element)) Habitat placed")
             select(.habitat(b.id))
+        case .newCave:
+            guard let b = state.placeCave(col: p.col, row: p.row, now: Date()) else {
+                hud.toast("Not enough gold")
+                return
+            }
+            endPlacement()
+            addBuildingNode(b)
+            if let placed = caveNodes[b.id] { Effects.bounce(placed) }
+            hud.setGold(state.gold)
+            hud.toast("\(CaveRules.name) placed. Tap it to breed!")
+            select(.cave(b.id))
         case .move(let id):
             state.moveBuilding(id, col: p.col, row: p.row)
             endPlacement()

@@ -72,6 +72,11 @@ final class Catalog {
     var startingGems: Int { economy.starting?.gems ?? 20 }
     var secondsPerGem: Double { max(1, economy.gems?.secondsPerGem ?? 90) }
     var minimumSkipCost: Int { economy.gems?.minimumSkipCost ?? 1 }
+    var breedingCost: Int { economy.breeding?.costCoins ?? 120 }
+
+    func rarityColor(_ rarity: String) -> SKColor {
+        SKColor(hex: economy.rarities?[rarity]?.color ?? "#8899AA")
+    }
 
     /// Milestone 1 start: exactly one habitat + one egg.
     var startingGold: Int { habitatCost + eggCost }
@@ -121,6 +126,12 @@ final class Catalog {
             let file = elementInfo(s.element)?.egg ?? "egg_\(s.element).png"
             return texture("dragons/" + file)
         }
+    }
+
+    /// Breeding Cave reuses the shipped grove art.
+    var caveTexture: SKTexture {
+        let file = economy.buildings?["grove"]?.sprite ?? "building_grove.png"
+        return texture("buildings/" + file)
     }
 
     var nurseryTexture: SKTexture {

@@ -120,12 +120,13 @@ extension GameScene {
         return nil
     }
 
-    /// Picks the most specific tapped object: egg > dragon > habitat > nursery.
+    /// Picks the most specific tapped object: egg > dragon > habitat > cave > nursery.
     private func tapWorld(_ nodes: [SKNode]) {
         var egg: EggNode?
         var dragon: DragonNode?
         var habitat: HabitatNode?
         var nursery: NurseryNode?
+        var cave: CaveNode?
         for n in nodes {
             var current: SKNode? = n
             while let node = current {
@@ -137,6 +138,8 @@ extension GameScene {
                     if let best = habitat, best.zPosition >= h.zPosition {} else { habitat = h }
                 } else if let ns = node as? NurseryNode {
                     nursery = ns
+                } else if let c = node as? CaveNode {
+                    if let best = cave, best.zPosition >= c.zPosition {} else { cave = c }
                 }
                 current = node.parent
             }
@@ -151,6 +154,9 @@ extension GameScene {
             Effects.bounce(h)
             collect(h)
             select(.habitat(h.buildingId))
+        } else if let c = cave {
+            Effects.bounce(c)
+            tapCave(c.buildingId)
         } else if let n = nursery {
             Effects.bounce(n)
             select(.nursery)

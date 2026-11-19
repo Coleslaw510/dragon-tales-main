@@ -10,6 +10,7 @@ final class GameScene: SKScene {
         case nursery
         case dragon(Int)
         case egg(Int)
+        case cave(Int)
     }
 
     let catalog = Catalog.shared
@@ -22,6 +23,7 @@ final class GameScene: SKScene {
     var grid: IslandGrid!
     var habitatNodes: [Int: HabitatNode] = [:]
     var nurseryNode: NurseryNode?
+    var caveNodes: [Int: CaveNode] = [:]
     var modal: ModalPanel?
     var placement: PlacementController?
     var selection: Selection?
@@ -121,6 +123,7 @@ final class GameScene: SKScene {
         let now = Date()
         state.accrueAll(now: now)
         nurseryNode?.sync(eggs: state.data.eggs, now: now, catalog: catalog)
+        syncCaves(now: now)
         for (id, node) in habitatNodes {
             node.setStored(state.storedGold(habitatId: id), cap: state.storageCap(habitatId: id))
         }

@@ -1,8 +1,9 @@
 import Foundation
 
-/// A running timer that gems can skip. Incubation today; breeding adds a case later.
+/// A running timer that gems can skip: egg incubation, or a Breeding Cave (by cave id).
 enum TimerRef: Equatable {
     case egg(Int)
+    case breeding(Int)
 }
 
 /// Generic timer queries and the gem speed-up. Cost = ceil(seconds left / secondsPerGem),
@@ -18,6 +19,8 @@ extension GameState {
         switch t {
         case .egg(let id):
             return egg(id)?.readyAt
+        case .breeding(let caveId):
+            return breed(inCave: caveId)?.readyAt
         }
     }
 
@@ -44,6 +47,8 @@ extension GameState {
         switch t {
         case .egg(let id):
             if let i = data.eggs.firstIndex(where: { $0.id == id }) { data.eggs[i].readyAt = now }
+        case .breeding(let caveId):
+            if let i = data.breeding?.firstIndex(where: { $0.caveId == caveId }) { data.breeding?[i].readyAt = now }
         }
         return .ok
     }

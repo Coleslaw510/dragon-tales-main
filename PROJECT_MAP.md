@@ -36,6 +36,11 @@ Swift 5, SpriteKit, iOS 16+, SwiftUI wrapper (`SpriteView`). XcodeGen (`project.
 - `App/Island/PlacementController.swift` — ghost + footprint marker drag/snap (new habitat or move)
 - `App/Island/GameScene+Placement.swift` — new-habitat placement, long-press move mode, confirm/cancel
 - `App/Island/HabitatNode.swift` — habitat sprite, wandering dragons, coin badge (>= 50% of cap)
+- `App/Island/CaveNode.swift` — Breeding Cave (grove art) + countdown / egg-ready pill
+- `App/Breeding/BreedingOdds.swift` — offspring pool + odds, rarity weights and breed timers (tuning constants)
+- `App/Breeding/BreedingController.swift` — cave cost, place cave, start breed, collect egg to nursery
+- `App/Breeding/BreedingPanel.swift` — pick 2 dragons, offspring list with %, confirm
+- `App/Breeding/GameScene+Breeding.swift` — cave tap/buy/collect flows, info text
 - `App/Island/NurseryNode.swift` — nursery (hatchery art) + shape-drawn nest holding `hatchery.slots` eggs
 - `App/Dragons/DragonNode.swift` — park dragon (bob, random-walk wander, faces direction; art faces left)
 - `App/Shop/ShopOverlay.swift`, `App/Shop/ShopItems.swift` — section menu (Eggs / Habitats / Buildings) + item grids
@@ -51,7 +56,6 @@ Swift 5, SpriteKit, iOS 16+, SwiftUI wrapper (`SpriteView`). XcodeGen (`project.
 
 Add these when the milestone starts. One feature per file; keep files under ~300 lines.
 
-- `App/Breeding/BreedingController.swift` — element-pair recipes, costs, results
 - `App/Breeding/HatcheryController.swift` — move nursery timers here if breeding needs it
 
 ## Data models (from JSON)
@@ -83,7 +87,7 @@ CI: push to `main` or run **Build unsigned IPA**; download the artifact. Sideloa
 - [x] 1. Skeleton + island scene — `App/DragonTalesApp.swift`, `App/GameScene.swift` (extend), later `App/Island/IslandScene.swift`
 - [x] 2. Loop polish — wander, gems + speed-up, nursery nest, 50% coin badge, 4h cap, move mode, shop menu, Dragon Book
 - [ ] 3. Habitats placement — `App/Island/IslandScene.swift`, `App/Island/HabitatNode.swift`
-- [ ] 4. Breeding — `App/Breeding/BreedingController.swift`
+- [x] 4. Breeding — Breeding Cave (done as Milestone 3) — `App/Breeding/`
 - [ ] 5. Incubation / hatching timers — `App/Breeding/HatcheryController.swift`
 - [ ] 6. Feeding / leveling — `App/Dragons/DragonNode.swift`
 - [ ] 7. Economy / coins / income — `App/Economy/Wallet.swift`
@@ -97,3 +101,4 @@ CI: push to `main` or run **Build unsigned IPA**; download the artifact. Sideloa
 - 2026-11-18: Repo created (public; now Coleslaw510/dragon-tales-main). Shipped art + JSON imported from the Nov 12 IPA. SpriteKit stub + unsigned IPA workflow added. Milestone 1 compiling stub is in place; island scene not built yet.
 - 2026-11-18: Milestone 1 baseline loop done (d5542de): island pan/zoom/select, gold HUD (start = habitat 380 + egg 220), shop tabs, habitat placement, nursery timers + hatch, habitat picker, income/collect, actions, Codable save. IPA build passed: https://github.com/Coleslaw510/dragon-tales-main/actions/runs/44445549337
 - 2026-11-18: Milestone 2 loop polish done (d5a945c, 586c0ea): dragon wander, gems + generic timer speed-up, multi-egg nest, coin badge at 50%, cap = gold/hr x 4h, long-press move mode, shop section menu, Dragon Book. IPA build passed: https://github.com/Coleslaw510/dragon-tales-main/actions/runs/44448635208
+- 2026-11-18: Milestone 3 Breeding Cave done (182f211): cave in shop Buildings (400 gold, place/move), pick 2 dragons with offspring % list, BreedingOdds.swift (subset + 2+ elements, same base -> base, rarity weights 50/28/14/6, timers by rarity), gem speed-up, egg to nursery (blocked when full). IPA build passed: https://github.com/Coleslaw510/dragon-tales-main/actions/runs/44450220218

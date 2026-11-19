@@ -24,6 +24,12 @@ targets:
       - path: Data
         type: folder
         buildPhase: resources
+      - path: Audio
+        type: folder
+        buildPhase: resources
+      - path: Fonts
+        type: folder
+        buildPhase: resources
     info:
       path: App/Info.plist
       properties:
@@ -37,6 +43,8 @@ targets:
         UIViewControllerBasedStatusBarAppearance: false
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         ITSAppUsesNonExemptEncryption: false
+        UIAppFonts:
+          - Fonts/Fredoka.ttf
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.coleslaw510.dragontales

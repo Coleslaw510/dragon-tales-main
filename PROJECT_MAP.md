@@ -18,6 +18,11 @@ Swift 5, SpriteKit, iOS 16+, SwiftUI wrapper (`SpriteView`). XcodeGen (`project.
 - `Art/buildings/` — grove, hatchery, farm, 6 decorations
 - `Art/tiles/` — island base, sky, grass/path tiles, cliffs, clouds, expansion plots
 - `Art/ui/` — coin/gem/food/xp icons, app icons
+- `Art/fx/` — Kenney Particle Pack subset (sparkles, stars, smoke/poof, glow, magic circles)
+- `Audio/sfx/` — Kenney Interface Sounds + RPG Audio (tap, confirm, open/close, hatch pop, coins); `.m4a`
+- `Audio/music/` — Tiny Puzzle BGM Loops (moss garden idle, tea time shop); `.m4a`
+- `Fonts/` — Fredoka (OFL) + `OFL.txt`
+- `CREDITS.md` — sources, authors, and licenses for the packs above
 - `Data/dragons.json` — species catalog
 - `Data/economy.json` — costs, timers, shop, island, starting layout
 - `App/DragonTalesApp.swift` — `@main` SwiftUI entry (holds one `GameScene`)
@@ -49,7 +54,7 @@ Swift 5, SpriteKit, iOS 16+, SwiftUI wrapper (`SpriteView`). XcodeGen (`project.
 - `App/UI/ModalPanel.swift`, `App/UI/Prompts.swift` — overlays, habitat picker
 - `App/UI/ButtonNode.swift`, `App/UI/Effects.swift`, `App/UI/Format.swift` — buttons, actions, formatting
 - `App/Resources/Assets.xcassets` — AppIcon
-- `project.yml` — XcodeGen spec
+- `project.yml` — XcodeGen spec (App + Art + Data + Audio + Fonts)
 - `.github/workflows/build.yml` — unsigned IPA on push to `main`
 
 ## Planned files
@@ -94,7 +99,7 @@ CI: push to `main` or run **Build unsigned IPA**; download the artifact. Sideloa
 - [ ] 8. Shop — `App/Shop/ShopOverlay.swift`
 - [ ] 9. Dragon book — `App/Book/DragonBook.swift`
 - [ ] 10. Save / load — `App/Save/SaveStore.swift`
-- [ ] 11. Polish / sound — `App/UI/HUD.swift`, audio TBD (no sounds in repo yet)
+- [ ] 11. Polish / sound — `App/UI/HUD.swift`, assets in `Art/fx/`, `Audio/`, `Fonts/` (not wired up yet)
 
 ## Session log
 
@@ -102,3 +107,4 @@ CI: push to `main` or run **Build unsigned IPA**; download the artifact. Sideloa
 - 2026-11-18: Milestone 1 baseline loop done (d5542de): island pan/zoom/select, gold HUD (start = habitat 380 + egg 220), shop tabs, habitat placement, nursery timers + hatch, habitat picker, income/collect, actions, Codable save. IPA build passed: https://github.com/Coleslaw510/dragon-tales-main/actions/runs/44445549337
 - 2026-11-18: Milestone 2 loop polish done (d5a945c, 586c0ea): dragon wander, gems + generic timer speed-up, multi-egg nest, coin badge at 50%, cap = gold/hr x 4h, long-press move mode, shop section menu, Dragon Book. IPA build passed: https://github.com/Coleslaw510/dragon-tales-main/actions/runs/44448635208
 - 2026-11-18: Milestone 3 Breeding Cave done (182f211): cave in shop Buildings (400 gold, place/move), pick 2 dragons with offspring % list, BreedingOdds.swift (subset + 2+ elements, same base -> base, rarity weights 50/28/14/6, timers by rarity), gem speed-up, egg to nursery (blocked when full). IPA build passed: https://github.com/Coleslaw510/dragon-tales-main/actions/runs/44450220218
+- 2026-11-19: Added free polish assets (Kenney particles + SFX, Tiny Puzzle BGM loops, Fredoka). See CREDITS.md.

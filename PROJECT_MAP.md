@@ -18,6 +18,7 @@ Swift 5, SpriteKit, iOS 16+, SwiftUI wrapper (`SpriteView`). XcodeGen (`project.
 - `Art/buildings/` — grove, hatchery, farm, 6 decorations
 - `Art/tiles/` — island base, sky, grass/path tiles, cliffs, clouds, expansion plots
 - `Art/ui/` — coin/gem/food/xp icons, app icons
+- `Art/ui/island/` — CraftPix Island Game GUI kit (panels, buttons, icons, bars). UI kit: Art/ui/island/ (CraftPix Island Game GUI)
 - `Art/fx/` — Kenney Particle Pack subset (sparkles, stars, smoke/poof, glow, magic circles)
 - `Audio/sfx/` — Kenney Interface Sounds + RPG Audio (tap, confirm, open/close, hatch pop, coins); `.m4a`
 - `Audio/music/` — Tiny Puzzle BGM Loops (moss garden idle, tea time shop); `.m4a`
@@ -108,3 +109,4 @@ CI: push to `main` or run **Build unsigned IPA**; download the artifact. Sideloa
 - 2026-11-18: Milestone 2 loop polish done (d5a945c, 586c0ea): dragon wander, gems + generic timer speed-up, multi-egg nest, coin badge at 50%, cap = gold/hr x 4h, long-press move mode, shop section menu, Dragon Book. IPA build passed: https://github.com/Coleslaw510/dragon-tales-main/actions/runs/44448635208
 - 2026-11-18: Milestone 3 Breeding Cave done (182f211): cave in shop Buildings (400 gold, place/move), pick 2 dragons with offspring % list, BreedingOdds.swift (subset + 2+ elements, same base -> base, rarity weights 50/28/14/6, timers by rarity), gem speed-up, egg to nursery (blocked when full). IPA build passed: https://github.com/Coleslaw510/dragon-tales-main/actions/runs/44450220218
 - 2026-11-19: Added free polish assets (Kenney particles + SFX, Tiny Puzzle BGM loops, Fredoka). See CREDITS.md.
+- 2026-11-19: Added CraftPix Island Game GUI kit to Art/ui/island/ (windows, buttons, icons, bars, other). See CREDITS.md.

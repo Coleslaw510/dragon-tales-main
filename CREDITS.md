@@ -38,3 +38,11 @@ Third-party assets bundled in this repo. Attribution is not required for the CC0
 - **Author:** The Fredoka Project Authors (https://github.com/hafontia/Fredoka-One)
 - **License:** SIL Open Font License 1.1 (`Fonts/OFL.txt`)
 - **Source:** https://github.com/google/fonts/tree/main/ofl/fredoka
+
+## Art/ui/island — Island Game GUI kit
+
+- **Pack:** Island Game – Free GUI
+- **Author:** CraftPix.net
+- **License:** CraftPix freebie (`Art/ui/island/LICENSE.md`) — commercial use in games OK; do not redistribute as an asset pack
+- **Source:** https://craftpix.net/freebies/island-game-gui/
+- **In repo:** transparent PNGs only (no PSD/AI) — panels in `windows/`, buttons (normal/hover/click/lock) in `buttons/`, icons in `icons/`, HUD bars and scrollbars in `bars/`, backgrounds and title banners in `other/`

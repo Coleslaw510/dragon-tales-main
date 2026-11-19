@@ -1,7 +1,7 @@
 import SpriteKit
 
 /// A hatched dragon living in a habitat. The container wanders (random walk with pauses)
-/// inside `bounds`; the child sprite bobs and flips to face the walking direction.
+/// inside `area`; the child sprite bobs and flips to face the walking direction.
 final class DragonNode: SKNode {
     /// Shipped dragon art faces left.
     static let artFacesLeft = true
@@ -10,7 +10,7 @@ final class DragonNode: SKNode {
     let dragonId: Int
     let speciesId: String
     let body: SKSpriteNode
-    private var bounds = CGRect.zero
+    private var area = CGRect.zero
 
     init(dragon: DragonSave, species: DragonSpecies, size: CGFloat) {
         dragonId = dragon.id
@@ -27,7 +27,7 @@ final class DragonNode: SKNode {
 
     /// Starts wandering inside `rect` (parent coordinates).
     func startWandering(in rect: CGRect) {
-        bounds = rect
+        area = rect
         removeAction(forKey: "wander")
         pauseThenStep(initial: true)
     }
@@ -38,9 +38,9 @@ final class DragonNode: SKNode {
     }
 
     private func step() {
-        guard bounds.width > 0 || bounds.height > 0 else { return }
-        let target = CGPoint(x: CGFloat.random(in: bounds.minX...bounds.maxX),
-                             y: CGFloat.random(in: bounds.minY...bounds.maxY))
+        guard area.width > 0 || area.height > 0 else { return }
+        let target = CGPoint(x: CGFloat.random(in: area.minX...area.maxX),
+                             y: CGFloat.random(in: area.minY...area.maxY))
         let dx = target.x - position.x
         let dy = target.y - position.y
         let dist = (dx * dx + dy * dy).squareRoot()

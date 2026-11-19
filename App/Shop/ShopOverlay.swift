@@ -75,10 +75,10 @@ final class ShopOverlay: ModalPanel {
     }
 
     private func menuButton(_ section: Section, size: CGSize) -> ButtonNode {
-        let b = ButtonNode(title: "", size: size, color: color(section), fontSize: 1)
+        let b = ButtonNode(title: "", size: size, color: sectionColor(section), fontSize: 1)
         b.action = { [weak self] in self?.show(section) }
         let side = size.height * 0.78
-        let icon = SKSpriteNode(texture: icon(section), size: CGSize(width: side, height: side))
+        let icon = SKSpriteNode(texture: sectionIcon(section), size: CGSize(width: side, height: side))
         icon.position = CGPoint(x: -size.width / 2 + 16 + side / 2, y: 0)
         icon.zPosition = 3
         b.addChild(icon)
@@ -101,7 +101,7 @@ final class ShopOverlay: ModalPanel {
         return b
     }
 
-    private func color(_ s: Section) -> SKColor {
+    private func sectionColor(_ s: Section) -> SKColor {
         switch s {
         case .eggs: return Palette.accent
         case .habitats: return Palette.go
@@ -109,7 +109,7 @@ final class ShopOverlay: ModalPanel {
         }
     }
 
-    private func icon(_ s: Section) -> SKTexture {
+    private func sectionIcon(_ s: Section) -> SKTexture {
         switch s {
         case .eggs: return catalog.texture("dragons/egg_fire.png")
         case .habitats: return catalog.habitatTexture("plant")
@@ -130,15 +130,15 @@ final class ShopOverlay: ModalPanel {
         header.position = CGPoint(x: 30, y: headerY)
         content.addChild(header)
 
-        let items = self.items(section)
+        let list = items(section)
         let cols = 2
         let gap: CGFloat = 10
-        let rows = max(1, (items.count + cols - 1) / cols)
+        let rows = max(1, (list.count + cols - 1) / cols)
         let areaTop = panelSize.height / 2 - 112
         let areaBottom = -panelSize.height / 2 + 16
         let cellW = (panelSize.width - 30 - gap) / 2
         let cellH = min(120, (areaTop - areaBottom - gap * CGFloat(rows - 1)) / CGFloat(rows))
-        for (i, item) in items.enumerated() {
+        for (i, item) in list.enumerated() {
             let c = i % cols
             let r = i / cols
             let cell = makeCell(item, size: CGSize(width: cellW, height: cellH))

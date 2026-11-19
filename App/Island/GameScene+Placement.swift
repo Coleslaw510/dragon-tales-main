@@ -91,19 +91,19 @@ extension GameScene {
             }
             endPlacement()
             addBuildingNode(b)
-            if let node = habitatNodes[b.id] { Effects.bounce(node) }
+            if let placed = habitatNodes[b.id] { Effects.bounce(placed) }
             hud.setGold(state.gold)
             hud.toast("\(catalog.elementName(element)) Habitat placed")
             select(.habitat(b.id))
         case .move(let id):
             state.moveBuilding(id, col: p.col, row: p.row)
             endPlacement()
-            if let node = node(forBuilding: id) {
+            if let moved = node(forBuilding: id) {
                 let pos = grid.center(col: p.col, row: p.row)
-                node.position = pos
-                node.zPosition = depth(pos)
-                node.alpha = 1
-                Effects.bounce(node)
+                moved.position = pos
+                moved.zPosition = depth(pos)
+                moved.alpha = 1
+                Effects.bounce(moved)
             }
             hud.toast("Moved")
         }

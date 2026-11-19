@@ -1,65 +1,140 @@
 import SpriteKit
 
-/// Shop with two tabs: Eggs (base single-element dragons) and Habitats (one per element).
-/// Prices come from economy.json `shop`.
+/// Dragon City-style shop: a menu of large section buttons (Eggs, Habitats, Buildings);
+/// tapping one opens that section's grid, with a Back button to the menu.
+/// Items and cells are in ShopItems.swift; prices come from economy.json `shop`.
 final class ShopOverlay: ModalPanel {
-    enum Tab {
+    enum Section: CaseIterable {
         case eggs
         case habitats
+        case buildings
+
+        var title: String {
+            switch self {
+            case .eggs: return "Eggs"
+            case .habitats: return "Habitats"
+            case .buildings: return "Buildings"
+            }
+        }
+
+        var subtitle: String {
+            switch self {
+            case .eggs: return "Hatch new dragons"
+            case .habitats: return "Homes that earn gold"
+            case .buildings: return "Nursery, grove & decor"
+            }
+        }
     }
 
-    private struct Item {
+    struct Item {
         let title: String
         let subtitle: String
         let price: Int
         let texture: SKTexture
         let color: SKColor
+        /// When set, shown instead of the price and the item can't be bought.
+        let note: String?
         let buy: () -> Void
     }
 
     var onBuyEgg: ((DragonSpecies) -> Void)?
     var onBuyHabitat: ((String) -> Void)?
+    var onUnavailable: ((String) -> Void)?
 
-    private let catalog: Catalog
-    private let gold: Int
+    let catalog: Catalog
+    let gold: Int
     private let content = SKNode()
-    private var eggTab: ButtonNode?
-    private var habitatTab: ButtonNode?
 
-    init(sceneSize: CGSize, catalog: Catalog, gold: Int, tab: Tab) {
+    init(sceneSize: CGSize, catalog: Catalog, gold: Int, section: Section?) {
         self.catalog = catalog
         self.gold = gold
         let w = min(sceneSize.width - 24, 440)
         let h = min(sceneSize.height - 140, 700)
         super.init(title: "Shop", panelSize: CGSize(width: w, height: h), sceneSize: sceneSize)
-
-        let tabW = (w - 50) / 2
-        let tabY = h / 2 - 86
-        let eggs = ButtonNode(title: "Eggs", size: CGSize(width: tabW, height: 42), color: Palette.muted)
-        eggs.position = CGPoint(x: -tabW / 2 - 5, y: tabY)
-        eggs.action = { [weak self] in self?.show(.eggs) }
-        let habitats = ButtonNode(title: "Habitats", size: CGSize(width: tabW, height: 42), color: Palette.muted)
-        habitats.position = CGPoint(x: tabW / 2 + 5, y: tabY)
-        habitats.action = { [weak self] in self?.show(.habitats) }
-        eggTab = eggs
-        habitatTab = habitats
-        addContent(eggs)
-        addContent(habitats)
         addContent(content)
-        show(tab)
+        if let section = section { show(section) } else { showMenu() }
     }
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) not used") }
 
-    private func show(_ tab: Tab) {
-        eggTab?.setFill(tab == .eggs ? Palette.accent : Palette.muted)
-        habitatTab?.setFill(tab == .habitats ? Palette.accent : Palette.muted)
+    // MARK: Menu
+
+    func showMenu() {
         content.removeAllChildren()
-        let items = tab == .eggs ? eggItems() : habitatItems()
+        let w = panelSize.width - 40
+        let top = panelSize.height / 2 - 76
+        let bottom = -panelSize.height / 2 + 20
+        let gap: CGFloat = 16
+        let count = CGFloat(Section.allCases.count)
+        let bh = min(150, (top - bottom - gap * (count - 1)) / count)
+        for (i, section) in Section.allCases.enumerated() {
+            let b = menuButton(section, size: CGSize(width: w, height: bh))
+            b.position = CGPoint(x: 0, y: top - bh / 2 - CGFloat(i) * (bh + gap))
+            content.addChild(b)
+        }
+    }
+
+    private func menuButton(_ section: Section, size: CGSize) -> ButtonNode {
+        let b = ButtonNode(title: "", size: size, color: color(section), fontSize: 1)
+        b.action = { [weak self] in self?.show(section) }
+        let side = size.height * 0.78
+        let icon = SKSpriteNode(texture: icon(section), size: CGSize(width: side, height: side))
+        icon.position = CGPoint(x: -size.width / 2 + 16 + side / 2, y: 0)
+        icon.zPosition = 3
+        b.addChild(icon)
+        let textX = icon.position.x + side / 2 + 16
+        let title = Format.label(section.title, size: min(30, size.height * 0.26))
+        title.fontName = "AvenirNext-Heavy"
+        title.horizontalAlignmentMode = .left
+        title.position = CGPoint(x: textX, y: size.height * 0.12)
+        title.zPosition = 3
+        b.addChild(title)
+        let sub = Format.label(section.subtitle, size: min(16, size.height * 0.14), bold: false)
+        sub.horizontalAlignmentMode = .left
+        sub.position = CGPoint(x: textX, y: -size.height * 0.18)
+        sub.zPosition = 3
+        b.addChild(sub)
+        let chevron = Format.label("›", size: 40)
+        chevron.position = CGPoint(x: size.width / 2 - 24, y: 0)
+        chevron.zPosition = 3
+        b.addChild(chevron)
+        return b
+    }
+
+    private func color(_ s: Section) -> SKColor {
+        switch s {
+        case .eggs: return Palette.accent
+        case .habitats: return Palette.go
+        case .buildings: return SKColor(red: 0.25, green: 0.48, blue: 0.85, alpha: 1)
+        }
+    }
+
+    private func icon(_ s: Section) -> SKTexture {
+        switch s {
+        case .eggs: return catalog.texture("dragons/egg_fire.png")
+        case .habitats: return catalog.habitatTexture("plant")
+        case .buildings: return catalog.nurseryTexture
+        }
+    }
+
+    // MARK: Section grid
+
+    func show(_ section: Section) {
+        content.removeAllChildren()
+        let headerY = panelSize.height / 2 - 82
+        let back = ButtonNode(title: "‹ Back", size: CGSize(width: 96, height: 40), color: Palette.muted, fontSize: 17)
+        back.position = CGPoint(x: -panelSize.width / 2 + 15 + 48, y: headerY)
+        back.action = { [weak self] in self?.showMenu() }
+        content.addChild(back)
+        let header = Format.label(section.title, size: 22, color: Palette.gold)
+        header.position = CGPoint(x: 30, y: headerY)
+        content.addChild(header)
+
+        let items = self.items(section)
         let cols = 2
         let gap: CGFloat = 10
         let rows = max(1, (items.count + cols - 1) / cols)
-        let areaTop = panelSize.height / 2 - 120
+        let areaTop = panelSize.height / 2 - 112
         let areaBottom = -panelSize.height / 2 + 16
         let cellW = (panelSize.width - 30 - gap) / 2
         let cellH = min(120, (areaTop - areaBottom - gap * CGFloat(rows - 1)) / CGFloat(rows))
@@ -73,56 +148,11 @@ final class ShopOverlay: ModalPanel {
         }
     }
 
-    private func eggItems() -> [Item] {
-        catalog.baseSpecies.map { s -> Item in
-            Item(title: s.name, subtitle: catalog.elementName(s.element) + " egg",
-                 price: catalog.eggCost, texture: catalog.eggTexture(s),
-                 color: catalog.elementColor(s.element),
-                 buy: { [weak self] in self?.onBuyEgg?(s) })
+    private func items(_ section: Section) -> [Item] {
+        switch section {
+        case .eggs: return eggItems()
+        case .habitats: return habitatItems()
+        case .buildings: return buildingItems()
         }
-    }
-
-    private func habitatItems() -> [Item] {
-        catalog.economy.elements.map { e -> Item in
-            let id = e.id
-            return Item(title: "\(e.name) Habitat", subtitle: "Holds \(catalog.habitatCapacity)",
-                        price: catalog.habitatCost, texture: catalog.habitatTexture(id),
-                        color: catalog.elementColor(id),
-                        buy: { [weak self] in self?.onBuyHabitat?(id) })
-        }
-    }
-
-    private func makeCell(_ item: Item, size: CGSize) -> ButtonNode {
-        let cell = ButtonNode(title: "", size: size, color: item.color.withAlphaComponent(0.4), fontSize: 1)
-        cell.action = item.buy
-        let iconSide = size.height * 0.48
-        let icon = SKSpriteNode(texture: item.texture, size: CGSize(width: iconSide, height: iconSide))
-        icon.position = CGPoint(x: 0, y: size.height / 2 - iconSide / 2 - 4)
-        icon.zPosition = 3
-        cell.addChild(icon)
-
-        let name = Format.label(item.title, size: min(16, size.height * 0.15))
-        name.position = CGPoint(x: 0, y: -size.height * 0.08)
-        name.zPosition = 3
-        cell.addChild(name)
-
-        let sub = Format.label(item.subtitle, size: min(12, size.height * 0.11), bold: false)
-        sub.position = CGPoint(x: 0, y: -size.height * 0.22)
-        sub.zPosition = 3
-        cell.addChild(sub)
-
-        let priceY = -size.height / 2 + size.height * 0.12
-        let coin = SKSpriteNode(texture: catalog.coinTexture, size: CGSize(width: 18, height: 18))
-        coin.position = CGPoint(x: -24, y: priceY)
-        coin.zPosition = 3
-        cell.addChild(coin)
-        let affordable = gold >= item.price
-        let price = Format.label(Format.gold(item.price), size: 15,
-                                 color: affordable ? Palette.gold : SKColor(red: 1, green: 0.45, blue: 0.42, alpha: 1))
-        price.horizontalAlignmentMode = .left
-        price.position = CGPoint(x: -12, y: priceY)
-        price.zPosition = 3
-        cell.addChild(price)
-        return cell
     }
 }

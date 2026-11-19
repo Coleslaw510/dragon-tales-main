@@ -7,6 +7,7 @@ enum Palette {
     static let muted = SKColor(red: 0.30, green: 0.36, blue: 0.52, alpha: 1)
     static let panel = SKColor(red: 0.13, green: 0.17, blue: 0.29, alpha: 0.97)
     static let gold = SKColor(red: 1.0, green: 0.86, blue: 0.32, alpha: 1)
+    static let gem = SKColor(red: 0.62, green: 0.30, blue: 0.86, alpha: 1)
 }
 
 /// Rounded tappable button. The scene finds it by walking up from hit nodes.

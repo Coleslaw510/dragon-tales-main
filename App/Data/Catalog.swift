@@ -66,9 +66,12 @@ final class Catalog {
     var eggCost: Int { economy.shop.baseEggCost }
     var habitatCost: Int { economy.shop.habitatCost }
     var habitatCapacity: Int { economy.habitats.capacity }
-    var habitatStorageCap: Double { economy.habitats.storageCap }
+    var storageHours: Double { economy.habitats.storageHours ?? 4 }
     var maxOfflineSeconds: Double { economy.habitats.maxOfflineSeconds ?? 43200 }
-    var nurserySlots: Int { economy.hatchery.slots }
+    var nurserySlots: Int { max(1, economy.hatchery.slots) }
+    var startingGems: Int { economy.starting?.gems ?? 20 }
+    var secondsPerGem: Double { max(1, economy.gems?.secondsPerGem ?? 90) }
+    var minimumSkipCost: Int { economy.gems?.minimumSkipCost ?? 1 }
 
     /// Milestone 1 start: exactly one habitat + one egg.
     var startingGold: Int { habitatCost + eggCost }
@@ -126,6 +129,9 @@ final class Catalog {
     }
 
     var coinTexture: SKTexture { texture("ui/icon_coin.png") }
+    var gemTexture: SKTexture { texture("ui/icon_gem.png") }
+
+    func buildingTexture(_ file: String) -> SKTexture { texture("buildings/" + file) }
 }
 
 extension SKColor {

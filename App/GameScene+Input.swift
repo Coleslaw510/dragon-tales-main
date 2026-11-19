@@ -1,7 +1,8 @@
 import SpriteKit
 import UIKit
 
-/// Touch routing: modal > HUD buttons > placement ghost drag > world taps; drag pans, pinch zooms.
+/// Touch routing: modal > HUD buttons > placement ghost drag > world taps; drag pans, pinch zooms,
+/// long-press on a building starts move mode (GameScene+Placement.swift).
 extension GameScene {
     func installGestures(in view: SKView) {
         guard pinch == nil else { return }
@@ -31,13 +32,25 @@ extension GameScene {
         touchLast = touchStart
         isPanning = false
         draggingGhost = false
+        let wp = t.location(in: world)
         if modal == nil, let p = placement {
-            let wp = t.location(in: world)
             if p.contains(wp) {
                 draggingGhost = true
                 dragOffset = CGPoint(x: p.ghost.position.x - wp.x, y: p.ghost.position.y - wp.y)
             }
+        } else if modal == nil, !hudHit(t),
+                  let target = buildingNode(at: wp) {
+            // Long-press a placed building to enter move mode.
+            let id = target.id
+            run(SKAction.sequence([SKAction.wait(forDuration: GameScene.longPressSeconds), SKAction.run { [weak self] in
+                guard let self = self, self.trackedTouch === t, !self.isPanning, !self.isPinching else { return }
+                self.startMove(buildingId: id, touchWorld: t.location(in: self.world))
+            }]), withKey: "longPress")
         }
+    }
+
+    private func hudHit(_ t: UITouch) -> Bool {
+        button(in: hud.nodes(at: t.location(in: hud))) != nil
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -47,6 +60,7 @@ extension GameScene {
         let dy = loc.y - touchStart.y
         if !isPanning, dx * dx + dy * dy > 64 {
             isPanning = true
+            removeAction(forKey: "longPress")
         }
         defer { touchLast = loc }
         guard isPanning, modal == nil else { return }
@@ -62,6 +76,7 @@ extension GameScene {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let t = trackedTouch, touches.contains(t) else { return }
         trackedTouch = nil
+        removeAction(forKey: "longPress")
         if !isPanning && !isPinching { handleTap(t) }
         isPanning = false
         draggingGhost = false
@@ -69,6 +84,7 @@ extension GameScene {
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         trackedTouch = nil
+        removeAction(forKey: "longPress")
         isPanning = false
         draggingGhost = false
     }
@@ -93,7 +109,7 @@ extension GameScene {
         tapWorld(world.nodes(at: t.location(in: world)))
     }
 
-    private func button(in nodes: [SKNode]) -> ButtonNode? {
+    func button(in nodes: [SKNode]) -> ButtonNode? {
         for n in nodes {
             var current: SKNode? = n
             while let node = current {

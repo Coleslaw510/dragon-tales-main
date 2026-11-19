@@ -40,16 +40,34 @@ struct LayoutEntry: Codable {
 struct Economy: Codable {
     struct Starting: Codable {
         let coins: Double?
+        let gems: Int?
         let layout: [LayoutEntry]?
+    }
+    struct Decoration: Codable {
+        let id: String
+        let name: String
+        let cost: Int
+        let sprite: String
     }
     struct Shop: Codable {
         let baseEggCost: Int
         let habitatCost: Int
+        let decorations: [Decoration]?
+    }
+    struct Gems: Codable {
+        let secondsPerGem: Double?
+        let minimumSkipCost: Int?
+    }
+    struct Farms: Codable {
+        let name: String?
+        let sprite: String?
+        let cost: Int?
     }
     struct Habitats: Codable {
         let capacity: Int
         let coinsPerMinute: Double?
-        let storageCap: Double
+        /// Hours of full income a habitat stores (cap = sum of dragon gold/hr x hours).
+        let storageHours: Double?
         let maxOfflineSeconds: Double?
     }
     struct Hatchery: Codable {
@@ -80,6 +98,8 @@ struct Economy: Codable {
     let shop: Shop
     let habitats: Habitats
     let hatchery: Hatchery
+    let gems: Gems?
+    let farms: Farms?
     let island: Island
     let buildings: [String: BuildingInfo]?
 }
@@ -118,6 +138,10 @@ struct DragonSave: Codable {
 struct SaveData: Codable {
     var version: Int
     var gold: Int
+    /// Optional so Milestone 1 saves still load (filled with starting gems).
+    var gems: Int?
+    /// Species ever hatched (Dragon Book). Optional for old saves.
+    var discovered: [String]?
     var nextId: Int
     var buildings: [BuildingSave]
     var eggs: [EggSave]

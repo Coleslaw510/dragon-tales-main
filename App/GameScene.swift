@@ -69,14 +69,17 @@ final class GameScene: SKScene {
         let now = Date()
         let saved = SaveStore.load() ?? SaveStore.newGame(catalog: catalog, grid: grid, now: now)
         state = GameState(data: saved, catalog: catalog)
+        if state.data.gems == nil { state.data.gems = catalog.startingGems }
         state.accrueAll(now: now)
 
         buildBackdrop()
         rebuildBuildings()
 
-        hud = HUD(onShop: { [weak self] in self?.openShop(tab: .eggs) },
+        hud = HUD(onShop: { [weak self] in self?.openShop() },
                   onConfirm: { [weak self] in self?.confirmPlacement() },
-                  onCancel: { [weak self] in self?.cancelPlacement() })
+                  onCancel: { [weak self] in self?.cancelPlacement() },
+                  onSpeedUp: { [weak self] in self?.speedUpSelected() },
+                  onBook: { [weak self] in self?.openBook() })
         cam.addChild(hud)
         layoutForSize()
         cameraCtl.fit(width: 1150, viewWidth: size.width)
@@ -119,9 +122,10 @@ final class GameScene: SKScene {
         state.accrueAll(now: now)
         nurseryNode?.sync(eggs: state.data.eggs, now: now, catalog: catalog)
         for (id, node) in habitatNodes {
-            node.setStored(state.storedGold(habitatId: id))
+            node.setStored(state.storedGold(habitatId: id), cap: state.storageCap(habitatId: id))
         }
         hud.setGold(state.gold)
+        hud.setGems(state.gems)
         refreshInfo()
         if now.timeIntervalSince(lastSave) > 15 { save() }
     }

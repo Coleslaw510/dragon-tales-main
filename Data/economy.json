@@ -45,7 +45,7 @@
     "capacity": 4,
     "coinsPerMinute": 12,
     "levelBonusPerLevel": 0.18,
-    "storageCap": 4800,
+    "storageHours": 4,
     "maxOfflineSeconds": 43200
   },
   "farms": {

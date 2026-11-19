@@ -1,11 +1,13 @@
 import SpriteKit
 
-/// A placed habitat: element sprite, up to `capacity` dragons, and a coin badge
-/// showing stored gold.
+/// A placed habitat: element sprite, up to `capacity` wandering dragons, and a coin badge
+/// showing stored gold once it is at least 50% of the cap.
 final class HabitatNode: SKSpriteNode {
     static let side: CGFloat = 200
     static let slots: [CGPoint] = [CGPoint(x: -48, y: 22), CGPoint(x: 48, y: 22),
                                    CGPoint(x: -48, y: -34), CGPoint(x: 48, y: -34)]
+    /// Area dragon centers may wander in (habitat-local), keeping sprites on the habitat.
+    static let wanderBounds = CGRect(x: -52, y: -40, width: 104, height: 66)
 
     let buildingId: Int
     let element: String
@@ -58,11 +60,13 @@ final class HabitatNode: SKSpriteNode {
             node.position = slot
             node.zPosition = 10 - slot.y / 10
             dragonLayer.addChild(node)
+            node.startWandering(in: HabitatNode.wanderBounds)
         }
     }
 
-    func setStored(_ amount: Int) {
-        let show = amount >= 1
+    /// The coin badge appears once stored gold reaches half the habitat's cap.
+    func setStored(_ amount: Int, cap: Double) {
+        let show = cap > 0 && amount >= 1 && Double(amount) >= cap * 0.5
         badge.isHidden = !show
         badgeLabel.text = Format.gold(amount)
         if show, badge.action(forKey: "pulse") == nil {

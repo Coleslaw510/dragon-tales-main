@@ -46,7 +46,7 @@ extension GameScene {
         let pos = grid.center(col: b.col, row: b.row)
         switch b.kind {
         case .nursery:
-            let n = NurseryNode(building: b)
+            let n = NurseryNode(building: b, capacity: catalog.nurserySlots)
             n.position = pos
             n.zPosition = depth(pos)
             world.addChild(n)
@@ -65,6 +65,6 @@ extension GameScene {
     func refreshHabitat(_ id: Int) {
         guard let node = habitatNodes[id] else { return }
         node.setDragons(state.dragons(inHabitat: id), catalog: catalog)
-        node.setStored(state.storedGold(habitatId: id))
+        node.setStored(state.storedGold(habitatId: id), cap: state.storageCap(habitatId: id))
     }
 }

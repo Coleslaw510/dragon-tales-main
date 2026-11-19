@@ -42,9 +42,15 @@ final class GameState {
 
     var nurseryFull: Bool { data.eggs.count >= catalog.nurserySlots }
 
-    func occupiedCells(grid: IslandGrid) -> Set<GridCell> {
+    /// Species ever hatched or owned (Dragon Book).
+    var discoveredSpecies: Set<String> {
+        Set(data.discovered ?? []).union(data.dragons.map { $0.speciesId })
+    }
+
+    /// Grid cells used by buildings, optionally ignoring one (the one being moved).
+    func occupiedCells(grid: IslandGrid, excluding: Int? = nil) -> Set<GridCell> {
         var cells = Set<GridCell>()
-        for b in data.buildings {
+        for b in data.buildings where b.id != excluding {
             for c in grid.footprint(col: b.col, row: b.row) { cells.insert(c) }
         }
         return cells
@@ -75,6 +81,13 @@ final class GameState {
         return b
     }
 
+    /// Moves a placed building to a new grid origin (validity checked by the caller).
+    func moveBuilding(_ id: Int, col: Int, row: Int) {
+        guard let i = data.buildings.firstIndex(where: { $0.id == id }) else { return }
+        data.buildings[i].col = col
+        data.buildings[i].row = row
+    }
+
     /// Moves a ready egg into a compatible habitat with space.
     func hatch(eggId: Int, habitatId: Int, now: Date) -> DragonSave? {
         guard let i = data.eggs.firstIndex(where: { $0.id == eggId }),
@@ -87,6 +100,7 @@ final class GameState {
         data.eggs.remove(at: i)
         let d = DragonSave(id: makeId(), speciesId: s.id, habitatId: habitatId, hatchedAt: now)
         data.dragons.append(d)
+        if !(data.discovered ?? []).contains(s.id) { data.discovered = (data.discovered ?? []) + [s.id] }
         return d
     }
 }

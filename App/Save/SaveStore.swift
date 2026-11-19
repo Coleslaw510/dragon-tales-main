@@ -29,7 +29,8 @@ enum SaveStore {
         }
     }
 
-    /// Fresh park: the nursery at the starting hatchery spot and gold for one habitat + one egg.
+    /// Fresh park: the nursery at the starting hatchery spot, gold for one habitat + one egg,
+    /// and a few starting gems.
     static func newGame(catalog: Catalog, grid: IslandGrid, now: Date) -> SaveData {
         let spot = catalog.economy.starting?.layout?.first(where: { $0.kind == "hatchery" })
         var col = spot?.col ?? -2
@@ -41,7 +42,8 @@ enum SaveStore {
         }
         let nursery = BuildingSave(id: 1, kind: .nursery, element: nil, col: col, row: row,
                                    storedGold: 0, lastAccrual: now)
-        return SaveData(version: 1, gold: catalog.startingGold, nextId: 2,
+        return SaveData(version: 2, gold: catalog.startingGold, gems: catalog.startingGems,
+                        discovered: [], nextId: 2,
                         buildings: [nursery], eggs: [], dragons: [], savedAt: now)
     }
 }

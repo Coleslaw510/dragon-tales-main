@@ -1,6 +1,7 @@
 import SpriteKit
 
-/// Gameplay flows: shop purchases, habitat placement, hatching, collecting, selection info.
+/// Gameplay flows: shop, Dragon Book, gem speed-ups, hatching, collecting, selection info.
+/// Placement and move mode live in Island/GameScene+Placement.swift.
 extension GameScene {
     // MARK: Modals
 
@@ -21,12 +22,52 @@ extension GameScene {
 
     // MARK: Shop
 
-    func openShop(tab: ShopOverlay.Tab) {
+    /// Opens the shop menu, or straight into one section.
+    func openShop(section: ShopOverlay.Section? = nil) {
         guard placement == nil else { return }
-        let shop = ShopOverlay(sceneSize: size, catalog: catalog, gold: state.gold, tab: tab)
+        let shop = ShopOverlay(sceneSize: size, catalog: catalog, gold: state.gold, section: section)
         shop.onBuyEgg = { [weak self] s in self?.buyEgg(s) }
         shop.onBuyHabitat = { [weak self] e in self?.buyHabitat(e) }
+        shop.onUnavailable = { [weak self] text in self?.hud.toast(text) }
         presentModal(shop)
+    }
+
+    func openBook() {
+        guard placement == nil else { return }
+        presentModal(DragonBook(sceneSize: size, catalog: catalog, discovered: state.discoveredSpecies))
+    }
+
+    // MARK: Timers (gem speed-up)
+
+    /// The timer the selection shows a speed-up button for, if any.
+    func selectedTimer(now: Date) -> TimerRef? {
+        switch selection {
+        case .egg(let id)?:
+            return state.remaining(.egg(id), now: now) > 0 ? .egg(id) : nil
+        case .nursery?:
+            return state.nextIncubatingEgg(now: now)
+        default:
+            return nil
+        }
+    }
+
+    func speedUpSelected() {
+        let now = Date()
+        guard let t = selectedTimer(now: now) else { return }
+        let cost = state.skipCost(t, now: now)
+        switch state.speedUp(t, now: now) {
+        case .ok:
+            hud.bumpGems()
+            hud.toast("Sped up for \(cost) gems")
+            tick()
+            if let n = nurseryNode { Effects.bounce(n) }
+            save()
+        case .notEnoughGems:
+            hud.toast("Not enough gems (need \(cost), have \(state.gems))")
+            Effects.bounce(hud.gemIcon)
+        case .finished:
+            refreshInfo()
+        }
     }
 
     func buyEgg(_ s: DragonSpecies) {
@@ -57,49 +98,6 @@ extension GameScene {
         startPlacement(element)
     }
 
-    // MARK: Placement
-
-    func startPlacement(_ element: String) {
-        guard let p = PlacementController(element: element, grid: grid,
-                                          occupied: state.occupiedCells(grid: grid),
-                                          near: cam.position, world: world) else {
-            hud.toast("No free space on the island")
-            return
-        }
-        placement = p
-        select(nil)
-        hud.setPlacementMode(true, element: catalog.elementName(element))
-        hud.confirmButton.isEnabled = p.isValid
-    }
-
-    func confirmPlacement() {
-        guard let p = placement, p.isValid else {
-            hud.toast("Can't place it there")
-            return
-        }
-        guard let b = state.placeHabitat(element: p.element, col: p.col, row: p.row, now: Date()) else {
-            hud.toast("Not enough gold")
-            return
-        }
-        endPlacement()
-        addBuildingNode(b)
-        if let node = habitatNodes[b.id] { Effects.bounce(node) }
-        hud.setGold(state.gold)
-        hud.toast("\(catalog.elementName(p.element)) Habitat placed")
-        select(.habitat(b.id))
-        save()
-    }
-
-    func cancelPlacement() {
-        endPlacement()
-    }
-
-    private func endPlacement() {
-        placement?.remove()
-        placement = nil
-        hud.setPlacementMode(false, element: nil)
-    }
-
     // MARK: Nursery and hatching
 
     func firstReadyEgg() -> Int? {
@@ -121,7 +119,7 @@ extension GameScene {
             let text = "\(s.name) needs a \(elementName) Habitat with free space. Buy one, then tap the egg again."
             let buttons: [Prompts.ButtonSpec] = [
                 (title: "Later", color: Palette.muted, action: { [weak self] in self?.closeModal() }),
-                (title: "Open Shop", color: Palette.accent, action: { [weak self] in self?.openShop(tab: .habitats) })
+                (title: "Open Shop", color: Palette.accent, action: { [weak self] in self?.openShop(section: .habitats) })
             ]
             presentModal(Prompts.message(title: "Needs a home", text: text, buttons: buttons, sceneSize: size))
             return
@@ -161,7 +159,7 @@ extension GameScene {
                          in: cam, texture: catalog.coinTexture) { [weak self] in
             self?.hud.bumpGold()
         }
-        h.setStored(state.storedGold(habitatId: h.buildingId))
+        h.setStored(state.storedGold(habitatId: h.buildingId), cap: state.storageCap(habitatId: h.buildingId))
         hud.setGold(state.gold)
         save()
     }
@@ -174,6 +172,10 @@ extension GameScene {
     }
 
     func refreshInfo() {
+        let now = Date()
+        let timer = selectedTimer(now: now)
+        let cost = timer.map { state.skipCost($0, now: now) }
+        hud.setSpeedUp(cost: cost, affordable: (cost ?? 0) <= state.gems)
         guard let sel = selection else {
             hud.showInfo(nil)
             return
@@ -188,7 +190,7 @@ extension GameScene {
             let count = state.dragons(inHabitat: id).count
             let rate = Format.gold(Int(state.goldPerHour(habitatId: id)))
             let stored = Format.gold(state.storedGold(habitatId: id))
-            let cap = Format.gold(Int(catalog.habitatStorageCap))
+            let cap = Format.gold(Int(state.storageCap(habitatId: id)))
             let header = "\(catalog.elementName(b.element ?? "")) Habitat · \(count)/\(catalog.habitatCapacity) dragons"
             return header + "\n\(rate) gold/hr · stored \(stored)/\(cap)"
         case .nursery:

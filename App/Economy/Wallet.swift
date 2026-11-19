@@ -1,7 +1,8 @@
 import Foundation
 
-/// Gold balance and habitat income: each dragon earns incomePerMinute * 60 gold/hour,
-/// stored in its habitat up to `storageCap`. Offline time is capped at `maxOfflineSeconds`.
+/// Gold/gem balances and habitat income: each dragon earns incomePerMinute * 60 gold/hour,
+/// stored in its habitat up to cap = (sum of its dragons' gold/hr) x `storageHours` (4h).
+/// Offline time is capped at `maxOfflineSeconds`.
 extension GameState {
     var gold: Int { data.gold }
 
@@ -16,6 +17,20 @@ extension GameState {
 
     func earn(_ amount: Int) {
         data.gold += max(0, amount)
+    }
+
+    var gems: Int { data.gems ?? catalog.startingGems }
+
+    @discardableResult
+    func spendGems(_ cost: Int) -> Bool {
+        guard cost >= 0, gems >= cost else { return false }
+        data.gems = gems - cost
+        return true
+    }
+
+    /// Coin cap for a habitat: its dragons' combined gold/hr times `storageHours`.
+    func storageCap(habitatId: Int) -> Double {
+        goldPerHour(habitatId: habitatId) * catalog.storageHours
     }
 
     func goldPerHour(habitatId: Int) -> Double {
@@ -47,7 +62,8 @@ extension GameState {
         guard b.kind == .habitat else { return }
         let elapsed = min(max(0, now.timeIntervalSince(b.lastAccrual)), catalog.maxOfflineSeconds)
         let rate = goldPerHour(habitatId: b.id)
-        b.storedGold = min(catalog.habitatStorageCap, b.storedGold + rate * elapsed / 3600)
+        let cap = rate * catalog.storageHours
+        b.storedGold = min(max(cap, b.storedGold), b.storedGold + rate * elapsed / 3600)
         b.lastAccrual = now
         data.buildings[i] = b
     }

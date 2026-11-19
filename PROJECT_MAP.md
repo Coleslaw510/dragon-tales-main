@@ -78,7 +78,7 @@ CI: push to `main` or run **Build unsigned IPA**; download the artifact. Sideloa
 
 ## Milestones
 
-- [ ] 1. Skeleton + island scene — `App/DragonTalesApp.swift`, `App/GameScene.swift` (extend), later `App/Island/IslandScene.swift`
+- [x] 1. Skeleton + island scene — `App/DragonTalesApp.swift`, `App/GameScene.swift` (extend), later `App/Island/IslandScene.swift`
 - [ ] 2. Data loading — `App/Data/Catalog.swift`, `App/Data/Models.swift`, `Data/*.json`
 - [ ] 3. Habitats placement — `App/Island/IslandScene.swift`, `App/Island/HabitatNode.swift`
 - [ ] 4. Breeding — `App/Breeding/BreedingController.swift`
@@ -92,5 +92,5 @@ CI: push to `main` or run **Build unsigned IPA**; download the artifact. Sideloa
 
 ## Session log
 
-- 2026-11-18: Repo created (public, ColeMcClintock/dragon-tales). Shipped art + JSON imported from the Nov 12 IPA. SpriteKit stub + unsigned IPA workflow added. Milestone 1 compiling stub is in place; island scene not built yet.
-- 2026-11-18: Milestone 1 baseline loop pushed (ef45885): island pan/zoom/select, gold HUD (start = habitat 380 + egg 220), shop tabs, habitat placement, nursery timers + hatch, habitat picker, income/collect, actions, Codable save. Not checked off: GitHub Actions is disabled for the ColeMcClintock account (0 runs; dispatch returns HTTP 422), so the IPA build is unverified.
+- 2026-11-18: Repo created (public; now Coleslaw510/dragon-tales-main). Shipped art + JSON imported from the Nov 12 IPA. SpriteKit stub + unsigned IPA workflow added. Milestone 1 compiling stub is in place; island scene not built yet.
+- 2026-11-18: Milestone 1 baseline loop done (d5542de): island pan/zoom/select, gold HUD (start = habitat 380 + egg 220), shop tabs, habitat placement, nursery timers + hatch, habitat picker, income/collect, actions, Codable save. IPA build passed: https://github.com/Coleslaw510/dragon-tales-main/actions/runs/44445549337
